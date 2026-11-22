@@ -649,36 +649,120 @@ ui_UIStroke_44.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 ui_UIStroke_44.LineJoinMode = Enum.LineJoinMode.Round
 ui_UIStroke_44.Parent = ui_ErrorLabel_42
 
+-- إنشاء: Clock (TextLabel)
+local ui_Clock_45 = Instance.new("TextLabel")
+ui_Clock_45.Name = "Clock"
+ui_Clock_45.AnchorPoint = Vector2.new(0, 0)
+ui_Clock_45.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_Clock_45.BackgroundTransparency = 1
+ui_Clock_45.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Clock_45.BorderSizePixel = 0
+ui_Clock_45.Position = UDim2.new(0.317885, 0, 0.77771, 0)
+ui_Clock_45.Rotation = 0
+ui_Clock_45.Size = UDim2.new(0.213636, 0, 0.0638298, 0)
+ui_Clock_45.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Clock_45.Visible = true
+ui_Clock_45.ZIndex = 1
+ui_Clock_45.ClipsDescendants = false
+ui_Clock_45.LayoutOrder = 0
+ui_Clock_45.Text = "الساعة:"
+ui_Clock_45.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_Clock_45.TextSize = 14
+ui_Clock_45.TextScaled = false
+ui_Clock_45.TextWrapped = false
+ui_Clock_45.TextXAlignment = Enum.TextXAlignment.Right
+ui_Clock_45.TextYAlignment = Enum.TextYAlignment.Center
+ui_Clock_45.RichText = false
+ui_Clock_45.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_Clock_45.TextTransparency = 0
+ui_Clock_45.Parent = ui_MainFrame_2
+
+-- إنشاء: MoonStuts (TextLabel)
+local ui_MoonStuts_46 = Instance.new("TextLabel")
+ui_MoonStuts_46.Name = "MoonStuts"
+ui_MoonStuts_46.AnchorPoint = Vector2.new(0, 0)
+ui_MoonStuts_46.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_MoonStuts_46.BackgroundTransparency = 1
+ui_MoonStuts_46.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_MoonStuts_46.BorderSizePixel = 0
+ui_MoonStuts_46.Position = UDim2.new(0.316798, 0, 0.910638, 0)
+ui_MoonStuts_46.Rotation = 0
+ui_MoonStuts_46.Size = UDim2.new(0.213636, 0, 0.0638298, 0)
+ui_MoonStuts_46.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_MoonStuts_46.Visible = true
+ui_MoonStuts_46.ZIndex = 1
+ui_MoonStuts_46.ClipsDescendants = false
+ui_MoonStuts_46.LayoutOrder = 0
+ui_MoonStuts_46.Text = "حالة القمر: "
+ui_MoonStuts_46.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_MoonStuts_46.TextSize = 14
+ui_MoonStuts_46.TextScaled = false
+ui_MoonStuts_46.TextWrapped = false
+ui_MoonStuts_46.TextXAlignment = Enum.TextXAlignment.Right
+ui_MoonStuts_46.TextYAlignment = Enum.TextYAlignment.Center
+ui_MoonStuts_46.RichText = false
+ui_MoonStuts_46.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_MoonStuts_46.TextTransparency = 0
+ui_MoonStuts_46.Parent = ui_MainFrame_2
+
+-- إنشاء: SkyStuts (TextLabel)
+local ui_SkyStuts_47 = Instance.new("TextLabel")
+ui_SkyStuts_47.Name = "SkyStuts"
+ui_SkyStuts_47.AnchorPoint = Vector2.new(0, 0)
+ui_SkyStuts_47.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_SkyStuts_47.BackgroundTransparency = 1
+ui_SkyStuts_47.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_SkyStuts_47.BorderSizePixel = 0
+ui_SkyStuts_47.Position = UDim2.new(0.356522, 0, 0.843972, 0)
+ui_SkyStuts_47.Rotation = 0
+ui_SkyStuts_47.Size = UDim2.new(0.175, 0, 0.0638298, 0)
+ui_SkyStuts_47.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_SkyStuts_47.Visible = true
+ui_SkyStuts_47.ZIndex = 1
+ui_SkyStuts_47.ClipsDescendants = false
+ui_SkyStuts_47.LayoutOrder = 0
+ui_SkyStuts_47.Text = "حالة السماء:"
+ui_SkyStuts_47.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_SkyStuts_47.TextSize = 14
+ui_SkyStuts_47.TextScaled = false
+ui_SkyStuts_47.TextWrapped = false
+ui_SkyStuts_47.TextXAlignment = Enum.TextXAlignment.Right
+ui_SkyStuts_47.TextYAlignment = Enum.TextYAlignment.Center
+ui_SkyStuts_47.RichText = false
+ui_SkyStuts_47.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_SkyStuts_47.TextTransparency = 0
+ui_SkyStuts_47.Parent = ui_MainFrame_2
+
 -- إنشاء: ToggleBtn (ImageButton)
-local ui_ToggleBtn_45 = Instance.new("ImageButton")
-ui_ToggleBtn_45.Name = "ToggleBtn"
-ui_ToggleBtn_45.AnchorPoint = Vector2.new(0, 0)
-ui_ToggleBtn_45.BackgroundColor3 = Color3.fromRGB(0, 0, 59)
-ui_ToggleBtn_45.BackgroundTransparency = 0
-ui_ToggleBtn_45.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_ToggleBtn_45.BorderSizePixel = 0
-ui_ToggleBtn_45.Position = UDim2.new(0.197183, 0, 0.0760456, 0)
-ui_ToggleBtn_45.Rotation = 0
-ui_ToggleBtn_45.Size = UDim2.new(0.056338, 0, 0.121673, 0)
-ui_ToggleBtn_45.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_ToggleBtn_45.Visible = true
-ui_ToggleBtn_45.ZIndex = 1
-ui_ToggleBtn_45.ClipsDescendants = false
-ui_ToggleBtn_45.LayoutOrder = 0
-ui_ToggleBtn_45.Image = "rbxassetid://9835676490"
-ui_ToggleBtn_45.ImageColor3 = Color3.fromRGB(255, 255, 255)
-ui_ToggleBtn_45.ImageTransparency = 0.5
-ui_ToggleBtn_45.ScaleType = Enum.ScaleType.Stretch
-ui_ToggleBtn_45.SliceCenter = Rect.new(0, 0, 0, 0)
-ui_ToggleBtn_45.SliceScale = 1
-ui_ToggleBtn_45.AutoButtonColor = true
-ui_ToggleBtn_45.Parent = ui_MirageGui_1
+local ui_ToggleBtn_48 = Instance.new("ImageButton")
+ui_ToggleBtn_48.Name = "ToggleBtn"
+ui_ToggleBtn_48.AnchorPoint = Vector2.new(0, 0)
+ui_ToggleBtn_48.BackgroundColor3 = Color3.fromRGB(0, 0, 59)
+ui_ToggleBtn_48.BackgroundTransparency = 0
+ui_ToggleBtn_48.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_ToggleBtn_48.BorderSizePixel = 0
+ui_ToggleBtn_48.Position = UDim2.new(0.197183, 0, 0.0760456, 0)
+ui_ToggleBtn_48.Rotation = 0
+ui_ToggleBtn_48.Size = UDim2.new(0.056338, 0, 0.121673, 0)
+ui_ToggleBtn_48.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_ToggleBtn_48.Visible = true
+ui_ToggleBtn_48.ZIndex = 1
+ui_ToggleBtn_48.ClipsDescendants = false
+ui_ToggleBtn_48.LayoutOrder = 0
+ui_ToggleBtn_48.Image = "rbxassetid://9835676490"
+ui_ToggleBtn_48.ImageColor3 = Color3.fromRGB(255, 255, 255)
+ui_ToggleBtn_48.ImageTransparency = 0.5
+ui_ToggleBtn_48.ScaleType = Enum.ScaleType.Stretch
+ui_ToggleBtn_48.SliceCenter = Rect.new(0, 0, 0, 0)
+ui_ToggleBtn_48.SliceScale = 1
+ui_ToggleBtn_48.AutoButtonColor = true
+ui_ToggleBtn_48.Parent = ui_MirageGui_1
 
 -- إنشاء: UICorner (UICorner)
-local ui_UICorner_46 = Instance.new("UICorner")
-ui_UICorner_46.Name = "UICorner"
-ui_UICorner_46.CornerRadius = UDim.new(1, 0)
-ui_UICorner_46.Parent = ui_ToggleBtn_45
+local ui_UICorner_49 = Instance.new("UICorner")
+ui_UICorner_49.Name = "UICorner"
+ui_UICorner_49.CornerRadius = UDim.new(1, 0)
+ui_UICorner_49.Parent = ui_ToggleBtn_48
 
 --// ==========================================
 --// البرمجات المدمجة التي كانت داخل الواجهة
@@ -1344,7 +1428,165 @@ end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_ToggleBtn_45, Name = "LocalScript"}, {__index = ui_ToggleBtn_45})
+	local script = setmetatable({Parent = ui_Clock_45, Name = "LocalScript"}, {__index = ui_Clock_45})
+	local Lighting = game:GetService("Lighting")
+	local label = script.Parent
+	
+	if not label:IsA("TextLabel") then
+		warn("يجب وضع السكربت داخل TextLabel")
+		return
+	end
+	
+	local function isNight(clockTime)
+		return clockTime >= 18 or clockTime < 6
+	end
+	
+	local function formatClockTimeHMS(clockTime)
+		local normalized = clockTime % 24
+		local totalSeconds = math.floor(normalized * 3600)
+	
+		local hours = math.floor(totalSeconds / 3600) % 24
+		local minutes = math.floor((totalSeconds % 3600) / 60)
+		local seconds = totalSeconds % 60
+	
+		return string.format("%02d:%02d:%02d", hours, minutes, seconds)
+	end
+	
+	local function updateClockLabel()
+		local clockTime = Lighting.ClockTime
+		local formatted = formatClockTimeHMS(clockTime)
+		local period = isNight(clockTime) and "ليل" or "نهار"
+	
+		label.Text = string.format("الساعة: %s (%s)", formatted, period)
+	end
+	
+	Lighting:GetPropertyChangedSignal("ClockTime"):Connect(updateClockLabel)
+	updateClockLabel()
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_MoonStuts_46, Name = "LocalScript"}, {__index = ui_MoonStuts_46})
+	local Lighting = game:GetService("Lighting")
+	local label = script.Parent
+	
+	if not label:IsA("TextLabel") then
+		warn("يجب وضع السكربت داخل TextLabel")
+		return
+	end
+	
+	local TOTAL_PHASES = 8
+	local FULL_MOON_PHASE = 5 -- البدر يقع في الطور رقم 5
+	
+	-- ترتيب الأطوار من 1 إلى 8 وعدد الليالي المتبقية للوصول إلى الطور 5 (Full Moon)
+	local MoonPhases = {
+		["9709150401"] = { Index = 1, Name = "", NightsToFull = 4 },
+		["9709150086"] = { Index = 2, Name = "", NightsToFull = 3 },
+		["9709149680"] = { Index = 3, Name = "", NightsToFull = 2 },
+		["9709149052"] = { Index = 4, Name = "", NightsToFull = 1 },
+		["9709149431"] = { Index = 5, Name = "Full Moon", NightsToFull = 0 },
+		["9709143733"] = { Index = 6, Name = "", NightsToFull = 7 },
+		["9709139597"] = { Index = 7, Name = "", NightsToFull = 6 },
+		["9709135895"] = { Index = 8, Name = "", NightsToFull = 5 },
+	}
+	
+	local function getAssetId(textureStr)
+		if type(textureStr) ~= "string" then
+			return nil
+		end
+		return string.match(textureStr, "%d+")
+	end
+	
+	local function isNight(clockTime)
+		-- الليل يبدأ من 18:00 وحتى 06:00
+		return clockTime >= 18 or clockTime < 6
+	end
+	
+	local function getWhenFullMoonText(phaseInfo, clockTime)
+		local nightNow = isNight(clockTime)
+	
+		-- الحالة 1: الطور 5 والوقت ليل (Full Moon شغال الآن)
+		if phaseInfo.Index == FULL_MOON_PHASE and nightNow then
+			return "الفل مون: الآن (نشط)"
+		end
+	
+		-- الحالة 2: الطور 5 لكن الوقت نهار (سيظهر الليلة عند الساعة 18:00)
+		if phaseInfo.Index == FULL_MOON_PHASE and not nightNow then
+			local hoursLeftInGame = 18 - clockTime
+			local realMinutesLeft = math.max(0, hoursLeftInGame) -- 1 دقيقة حقيقية ≈ 1 ساعة داخل اللعبة
+			return string.format("الفل مون: الليلة (بعد ~%.1f د)", realMinutesLeft)
+		end
+	
+		-- الحالة 3: أي طور آخر -> نحسب عدد الليالي المتبقية للوصول للطور 5
+		-- ملاحظة: كل ليلة في اللعبة تعادل 24 دقيقة واقعية تقريباً
+		local nightsLeft = phaseInfo.NightsToFull
+		local approxMinutes = nightsLeft * 24
+	
+		if nightsLeft == 1 then
+			return string.format("الفل مون: الليلة القادمة (~%d د)", approxMinutes)
+		else
+			return string.format("الفل مون: بعد %d ليالٍ (~%d د)", nightsLeft, approxMinutes)
+		end
+	end
+	
+	local function updateUI()
+		local sky = Lighting:FindFirstChildOfClass("Sky")
+		if not sky then
+			label.Text = "? / 8 | الفل مون: غير معروف"
+			return
+		end
+	
+		local assetId = getAssetId(sky.MoonTextureId)
+		local phaseInfo = assetId and MoonPhases[assetId]
+	
+		if not phaseInfo then
+			label.Text = "? / 8 | الفل مون: طور غير مسجل"
+			return
+		end
+	
+		local statusText = getWhenFullMoonText(phaseInfo, Lighting.ClockTime)
+		label.Text = string.format("%d / %d | %s", phaseInfo.Index, TOTAL_PHASES, statusText)
+	end
+	
+	-- تحديث فوري عند تغير الوقت أو صورة القمر أو إضافة Sky
+	Lighting:GetPropertyChangedSignal("ClockTime"):Connect(updateUI)
+	
+	Lighting.ChildAdded:Connect(function(child)
+		if child:IsA("Sky") then
+			updateUI()
+			child:GetPropertyChangedSignal("MoonTextureId"):Connect(updateUI)
+		end
+	end)
+	
+	local existingSky = Lighting:FindFirstChildOfClass("Sky")
+	if existingSky then
+		existingSky:GetPropertyChangedSignal("MoonTextureId"):Connect(updateUI)
+	end
+	
+	updateUI()
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_SkyStuts_47, Name = "LocalScript"}, {__index = ui_SkyStuts_47})
+	local Lighting = game:GetService("Lighting")
+	local RunService = game:GetService("RunService")
+	local label = script.Parent
+	
+	local function updateSkyStatus()
+		local clockTime = Lighting.ClockTime
+		local isNight = (clockTime >= 18) or (clockTime < 6)
+		local status = isNight and "ليل🌙" or "صباح☀"
+		label.Text = "حالة السماء: " .. status
+	end
+	
+	updateSkyStatus()
+	RunService.RenderStepped:Connect(updateSkyStatus)
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_ToggleBtn_48, Name = "LocalScript"}, {__index = ui_ToggleBtn_48})
 	local button = script.Parent
 	local screenGui = button:FindFirstAncestorOfClass("ScreenGui")
 	local targetFrame = screenGui:WaitForChild("MainFrame") -- غيّر MainFrame إلى اسم الفريم
@@ -1356,7 +1598,7 @@ end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_ToggleBtn_45, Name = "LocalScript"}, {__index = ui_ToggleBtn_45})
+	local script = setmetatable({Parent = ui_ToggleBtn_48, Name = "LocalScript"}, {__index = ui_ToggleBtn_48})
 	local UserInputService = game:GetService("UserInputService")
 	
 	local frame = script.Parent
