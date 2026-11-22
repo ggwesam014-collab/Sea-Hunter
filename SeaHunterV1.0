@@ -637,44 +637,188 @@ ui_ErrorLabel_26.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.js
 ui_ErrorLabel_26.TextTransparency = 0
 ui_ErrorLabel_26.Parent = ui_ScriptFrame_3
 
+-- إنشاء: DestroyFrame (Frame)
+local ui_DestroyFrame_27 = Instance.new("Frame")
+ui_DestroyFrame_27.Name = "DestroyFrame"
+ui_DestroyFrame_27.AnchorPoint = Vector2.new(0, 0)
+ui_DestroyFrame_27.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ui_DestroyFrame_27.BackgroundTransparency = 0.30000001192092896
+ui_DestroyFrame_27.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_DestroyFrame_27.BorderSizePixel = 0
+ui_DestroyFrame_27.Position = UDim2.new(-0.788636, 0, -0.617021, 0)
+ui_DestroyFrame_27.Rotation = 0
+ui_DestroyFrame_27.Size = UDim2.new(0, 1136, 0, 526)
+ui_DestroyFrame_27.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_DestroyFrame_27.Visible = false
+ui_DestroyFrame_27.ZIndex = 873297239
+ui_DestroyFrame_27.ClipsDescendants = false
+ui_DestroyFrame_27.LayoutOrder = 0
+ui_DestroyFrame_27.Parent = ui_ScriptFrame_3
+
+-- إنشاء: BackGround (Frame)
+local ui_BackGround_28 = Instance.new("Frame")
+ui_BackGround_28.Name = "BackGround"
+ui_BackGround_28.AnchorPoint = Vector2.new(0, 0)
+ui_BackGround_28.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+ui_BackGround_28.BackgroundTransparency = 0
+ui_BackGround_28.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_BackGround_28.BorderSizePixel = 0
+ui_BackGround_28.Position = UDim2.new(0.389965, 0, 0.355513, 0)
+ui_BackGround_28.Rotation = 0
+ui_BackGround_28.Size = UDim2.new(0, 250, 0, 150)
+ui_BackGround_28.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_BackGround_28.Visible = true
+ui_BackGround_28.ZIndex = 1
+ui_BackGround_28.ClipsDescendants = false
+ui_BackGround_28.LayoutOrder = 0
+ui_BackGround_28.Parent = ui_DestroyFrame_27
+
+-- إنشاء: UIStroke (UIStroke)
+local ui_UIStroke_29 = Instance.new("UIStroke")
+ui_UIStroke_29.Name = "UIStroke"
+ui_UIStroke_29.Color = Color3.fromRGB(255, 255, 255)
+ui_UIStroke_29.Thickness = 1
+ui_UIStroke_29.Transparency = 0
+ui_UIStroke_29.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
+ui_UIStroke_29.LineJoinMode = Enum.LineJoinMode.Round
+ui_UIStroke_29.Parent = ui_BackGround_28
+
+-- إنشاء: TextLabel (TextLabel)
+local ui_TextLabel_30 = Instance.new("TextLabel")
+ui_TextLabel_30.Name = "TextLabel"
+ui_TextLabel_30.AnchorPoint = Vector2.new(0, 0)
+ui_TextLabel_30.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_TextLabel_30.BackgroundTransparency = 1
+ui_TextLabel_30.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_TextLabel_30.BorderSizePixel = 0
+ui_TextLabel_30.Position = UDim2.new(0.40757, 0, 0.378327, 0)
+ui_TextLabel_30.Rotation = 0
+ui_TextLabel_30.Size = UDim2.new(0, 210, 0, 62)
+ui_TextLabel_30.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_TextLabel_30.Visible = true
+ui_TextLabel_30.ZIndex = 1
+ui_TextLabel_30.ClipsDescendants = false
+ui_TextLabel_30.LayoutOrder = 0
+ui_TextLabel_30.Text = "هل تريد حذف السكربت؟ بمجرد حذف السكربت ستطفى جميع الانظمة"
+ui_TextLabel_30.TextColor3 = Color3.fromRGB(255, 0, 0)
+ui_TextLabel_30.TextSize = 20
+ui_TextLabel_30.TextScaled = true
+ui_TextLabel_30.TextWrapped = true
+ui_TextLabel_30.TextXAlignment = Enum.TextXAlignment.Center
+ui_TextLabel_30.TextYAlignment = Enum.TextYAlignment.Center
+ui_TextLabel_30.RichText = false
+ui_TextLabel_30.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_TextLabel_30.TextTransparency = 0
+ui_TextLabel_30.Parent = ui_DestroyFrame_27
+
+-- إنشاء: CloseBtn (TextButton)
+local ui_CloseBtn_31 = Instance.new("TextButton")
+ui_CloseBtn_31.Name = "CloseBtn"
+ui_CloseBtn_31.AnchorPoint = Vector2.new(0, 0)
+ui_CloseBtn_31.BackgroundColor3 = Color3.fromRGB(8, 8, 8)
+ui_CloseBtn_31.BackgroundTransparency = 0
+ui_CloseBtn_31.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_CloseBtn_31.BorderSizePixel = 0
+ui_CloseBtn_31.Position = UDim2.new(0.522463, 0, 0.54512, 0)
+ui_CloseBtn_31.Rotation = 0
+ui_CloseBtn_31.Size = UDim2.new(0, 87, 0, 33)
+ui_CloseBtn_31.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_CloseBtn_31.Visible = true
+ui_CloseBtn_31.ZIndex = 1
+ui_CloseBtn_31.ClipsDescendants = false
+ui_CloseBtn_31.LayoutOrder = 0
+ui_CloseBtn_31.Text = "لا"
+ui_CloseBtn_31.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_CloseBtn_31.TextSize = 14
+ui_CloseBtn_31.TextScaled = true
+ui_CloseBtn_31.TextWrapped = true
+ui_CloseBtn_31.TextXAlignment = Enum.TextXAlignment.Center
+ui_CloseBtn_31.TextYAlignment = Enum.TextYAlignment.Center
+ui_CloseBtn_31.RichText = false
+ui_CloseBtn_31.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_CloseBtn_31.TextTransparency = 0
+ui_CloseBtn_31.AutoButtonColor = true
+ui_CloseBtn_31.Parent = ui_DestroyFrame_27
+
+-- إنشاء: DisBtn (TextButton)
+local ui_DisBtn_32 = Instance.new("TextButton")
+ui_DisBtn_32.Name = "DisBtn"
+ui_DisBtn_32.AnchorPoint = Vector2.new(0, 0)
+ui_DisBtn_32.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+ui_DisBtn_32.BackgroundTransparency = 0
+ui_DisBtn_32.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_DisBtn_32.BorderSizePixel = 0
+ui_DisBtn_32.Position = UDim2.new(0.407146, 0, 0.54512, 0)
+ui_DisBtn_32.Rotation = 0
+ui_DisBtn_32.Size = UDim2.new(0, 87, 0, 33)
+ui_DisBtn_32.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_DisBtn_32.Visible = true
+ui_DisBtn_32.ZIndex = 1
+ui_DisBtn_32.ClipsDescendants = false
+ui_DisBtn_32.LayoutOrder = 0
+ui_DisBtn_32.Text = "نعم"
+ui_DisBtn_32.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_DisBtn_32.TextSize = 14
+ui_DisBtn_32.TextScaled = true
+ui_DisBtn_32.TextWrapped = true
+ui_DisBtn_32.TextXAlignment = Enum.TextXAlignment.Center
+ui_DisBtn_32.TextYAlignment = Enum.TextYAlignment.Center
+ui_DisBtn_32.RichText = false
+ui_DisBtn_32.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_DisBtn_32.TextTransparency = 0
+ui_DisBtn_32.AutoButtonColor = true
+ui_DisBtn_32.Parent = ui_DestroyFrame_27
+
 -- إنشاء: ToggleBtn (TextButton)
-local ui_ToggleBtn_27 = Instance.new("TextButton")
-ui_ToggleBtn_27.Name = "ToggleBtn"
-ui_ToggleBtn_27.AnchorPoint = Vector2.new(0, 0)
-ui_ToggleBtn_27.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
-ui_ToggleBtn_27.BackgroundTransparency = 0
-ui_ToggleBtn_27.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_ToggleBtn_27.BorderSizePixel = 0
-ui_ToggleBtn_27.Position = UDim2.new(0.912775, 0, 0.013308, 0)
-ui_ToggleBtn_27.Rotation = 0
-ui_ToggleBtn_27.Size = UDim2.new(0.0784141, 0, 0.0665399, 0)
-ui_ToggleBtn_27.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_ToggleBtn_27.Visible = true
-ui_ToggleBtn_27.ZIndex = 1
-ui_ToggleBtn_27.ClipsDescendants = false
-ui_ToggleBtn_27.LayoutOrder = 0
-ui_ToggleBtn_27.Text = "فتح / اغلاق"
-ui_ToggleBtn_27.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_ToggleBtn_27.TextSize = 14
-ui_ToggleBtn_27.TextScaled = false
-ui_ToggleBtn_27.TextWrapped = false
-ui_ToggleBtn_27.TextXAlignment = Enum.TextXAlignment.Center
-ui_ToggleBtn_27.TextYAlignment = Enum.TextYAlignment.Center
-ui_ToggleBtn_27.RichText = false
-ui_ToggleBtn_27.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_ToggleBtn_27.TextTransparency = 0
-ui_ToggleBtn_27.AutoButtonColor = true
-ui_ToggleBtn_27.Parent = ui_MainFrame_2
+local ui_ToggleBtn_33 = Instance.new("TextButton")
+ui_ToggleBtn_33.Name = "ToggleBtn"
+ui_ToggleBtn_33.AnchorPoint = Vector2.new(0, 0)
+ui_ToggleBtn_33.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+ui_ToggleBtn_33.BackgroundTransparency = 0
+ui_ToggleBtn_33.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_ToggleBtn_33.BorderSizePixel = 0
+ui_ToggleBtn_33.Position = UDim2.new(0.912775, 0, 0.013308, 0)
+ui_ToggleBtn_33.Rotation = 0
+ui_ToggleBtn_33.Size = UDim2.new(0.0784141, 0, 0.0665399, 0)
+ui_ToggleBtn_33.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_ToggleBtn_33.Visible = true
+ui_ToggleBtn_33.ZIndex = 1
+ui_ToggleBtn_33.ClipsDescendants = false
+ui_ToggleBtn_33.LayoutOrder = 0
+ui_ToggleBtn_33.Text = "فتح / اغلاق"
+ui_ToggleBtn_33.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_ToggleBtn_33.TextSize = 14
+ui_ToggleBtn_33.TextScaled = false
+ui_ToggleBtn_33.TextWrapped = false
+ui_ToggleBtn_33.TextXAlignment = Enum.TextXAlignment.Center
+ui_ToggleBtn_33.TextYAlignment = Enum.TextYAlignment.Center
+ui_ToggleBtn_33.RichText = false
+ui_ToggleBtn_33.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_ToggleBtn_33.TextTransparency = 0
+ui_ToggleBtn_33.AutoButtonColor = true
+ui_ToggleBtn_33.Parent = ui_MainFrame_2
 
 -- إنشاء: UICorner (UICorner)
-local ui_UICorner_28 = Instance.new("UICorner")
-ui_UICorner_28.Name = "UICorner"
-ui_UICorner_28.CornerRadius = UDim.new(0, 4)
-ui_UICorner_28.Parent = ui_ToggleBtn_27
+local ui_UICorner_34 = Instance.new("UICorner")
+ui_UICorner_34.Name = "UICorner"
+ui_UICorner_34.CornerRadius = UDim.new(0, 4)
+ui_UICorner_34.Parent = ui_ToggleBtn_33
 
 --// ==========================================
 --// البرمجات المدمجة التي كانت داخل الواجهة
 --// ==========================================
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_DestroyBtn_6, Name = "LocalScript"}, {__index = ui_DestroyBtn_6})
+	local button = script.Parent
+	local screenGui = button:FindFirstAncestorOfClass("ScreenGui")
+	local targetFrame = screenGui:WaitForChild("DestroyFrame") -- غيّر MainFrame إلى اسم الفريم
+	
+	button.MouseButton1Click:Connect(function()
+		targetFrame.Visible = true
+	end)
+end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
@@ -684,6 +828,7 @@ task.spawn(function()
 	local RunService = game:GetService("RunService")
 	local Workspace = game:GetService("Workspace")
 	local GuiService = game:GetService("GuiService")
+	local VirtualInputManager = game:GetService("VirtualInputManager")
 	
 	local player = Players.LocalPlayer
 	local playerGui = player:WaitForChild("PlayerGui")
@@ -868,7 +1013,7 @@ task.spawn(function()
 	
 	local function getVehicleSeat(boatModel)
 		for _, item in ipairs(boatModel:GetDescendants()) do
-			if item:IsA("VehicleSeat") and (item.Name == "vehcleSeat" or item.Name == "VehicleSeat" or item.Name:lower():find("seat")) then
+			if item:IsA("VehicleSeat") and (item.Name == "vehcleSeat" or item.Name == "VehicleSeat" or string.find(string.lower(item.Name), "seat", 1, true)) then
 				return item
 			end
 		end
@@ -1015,19 +1160,12 @@ task.spawn(function()
 		end
 	
 		for _, child in ipairs(seaEnemys:GetDescendants()) do
-			if child:IsA("TextButton") or child:IsA("ImageButton") then
-				if getconnections then
-					for _, conn in ipairs(getconnections(child.MouseButton1Click)) do
-						conn:Fire()
-					end
-					for _, conn in ipairs(getconnections(child.Activated)) do
-						conn:Fire()
-					end
-				end
-				pcall(function()
-					child.Active = true
-					GuiService.SelectedObject = child
-				end)
+			if child:IsA("GuiButton") and child.Active and child.Visible then
+				child:SetAttribute("TriggeredByAutoSail", true)
+				GuiService.SelectedObject = child
+				VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+				task.wait(0.05)
+				VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
 				break
 			end
 		end
@@ -1036,7 +1174,7 @@ task.spawn(function()
 	local function findTargetByKeyword(keyword)
 		local lowerKey = string.lower(keyword)
 		for _, obj in ipairs(Workspace:GetDescendants()) do
-			if string.find(string.lower(obj.Name), lowerKey) then
+			if string.find(string.lower(obj.Name), lowerKey, 1, true) then
 				if obj:IsA("BasePart") then
 					return obj
 				elseif obj:IsA("Model") then
@@ -1190,17 +1328,19 @@ task.spawn(function()
 		end)
 	end
 	
-	sailBtn.MouseButton1Click:Connect(function()
-		if isSailing then
-			stopRun(false)
-			return
-		end
+	if sailBtn:IsA("GuiButton") then
+		sailBtn.Activated:Connect(function()
+			if isSailing then
+				stopRun(false)
+				return
+			end
 	
-		local chosenType = playerGui:GetAttribute("SelectedSailType")
-		if chosenType == "Mirage" or chosenType == "Kitsune" then
-			runSailFlow(chosenType)
-		end
-	end)
+			local chosenType = playerGui:GetAttribute("SelectedSailType")
+			if chosenType == "Mirage" or chosenType == "Kitsune" then
+				runSailFlow(chosenType)
+			end
+		end)
+	end
 end)
 
 -- تشغيل برمجة: LocalScript
@@ -1213,6 +1353,9 @@ task.spawn(function()
 	local sailTypeBtn = script.Parent
 	
 	local function findFirstDescendantByName(root, name)
+		if not root then
+			return nil
+		end
 		for _, obj in ipairs(root:GetDescendants()) do
 			if obj.Name == name then
 				return obj
@@ -1221,26 +1364,21 @@ task.spawn(function()
 		return nil
 	end
 	
-	local mirageBtn = findFirstDescendantByName(playerGui, "MirageBtn")
-	local kitsuneBtn = findFirstDescendantByName(playerGui, "KitsuneBtn")
-	
-	-- تحديد الفريم تلقائياً عبر الزرين MirageBtn أو KitsuneBtn، أو بالاسم الشائع
-	local typeFrame = (mirageBtn and mirageBtn:FindFirstAncestorOfClass("Frame"))
-		or (kitsuneBtn and kitsuneBtn:FindFirstAncestorOfClass("Frame"))
+	-- الأولوية الأولى: الفريم الموجود داخل زر النوع نفسه
+	local typeFrame = sailTypeBtn:FindFirstChildWhichIsA("Frame")
+		or findFirstDescendantByName(sailTypeBtn, "TypeFrame")
 		or findFirstDescendantByName(playerGui, "TypeFrame")
-		or findFirstDescendantByName(playerGui, "SailTypeFrame")
 	
-	if not mirageBtn then
-		warn("[SailTypeBtn] لم يتم العثور على زر MirageBtn في PlayerGui")
-	end
-	if not kitsuneBtn then
-		warn("[SailTypeBtn] لم يتم العثور على زر KitsuneBtn في PlayerGui")
-	end
+	local mirageBtn = (typeFrame and findFirstDescendantByName(typeFrame, "MirageBtn"))
+		or findFirstDescendantByName(playerGui, "MirageBtn")
+	
+	local kitsuneBtn = (typeFrame and findFirstDescendantByName(typeFrame, "KitsuneBtn"))
+		or findFirstDescendantByName(playerGui, "KitsuneBtn")
+	
 	if not typeFrame then
-		warn("[SailTypeBtn] لم يتم العثور على الفريم الذي يحتوي على الأزرار في PlayerGui")
+		warn("[SailTypeBtn] لم يتم العثور على Frame داخل SailTypeBtn")
 	end
 	
-	-- قيمة افتراضية مشتركة مع سكربت sailBtn
 	if playerGui:GetAttribute("SelectedSailType") == nil then
 		playerGui:SetAttribute("SelectedSailType", "Mirage")
 	end
@@ -1251,8 +1389,7 @@ task.spawn(function()
 	
 	local function toggleTypeFrame()
 		if not typeFrame then
-			typeFrame = (mirageBtn and mirageBtn:FindFirstAncestorOfClass("Frame"))
-				or (kitsuneBtn and kitsuneBtn:FindFirstAncestorOfClass("Frame"))
+			typeFrame = sailTypeBtn:FindFirstChildWhichIsA("Frame")
 				or findFirstDescendantByName(playerGui, "TypeFrame")
 		end
 		if typeFrame then
@@ -1772,9 +1909,79 @@ task.spawn(function()
 	end)
 end)
 
+-- تشغيل برمجة: DragScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_ScriptFrame_3, Name = "DragScript"}, {__index = ui_ScriptFrame_3})
+	local UserInputService = game:GetService("UserInputService")
+	
+	local frame = script.Parent
+	local dragging = false
+	local dragInput, dragStart, startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		frame.Position = UDim2.new(
+			startPos.X.Scale,
+			startPos.X.Offset + delta.X,
+			startPos.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
+	end
+	
+	frame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = frame.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	frame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end)
+
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_ToggleBtn_27, Name = "LocalScript"}, {__index = ui_ToggleBtn_27})
+	local script = setmetatable({Parent = ui_CloseBtn_31, Name = "LocalScript"}, {__index = ui_CloseBtn_31})
+	local button = script.Parent
+	local frame = button.Parent -- يفترض أن الزر موجود مباشرة داخل الفريم
+	
+	button.MouseButton1Click:Connect(function()
+		frame.Visible = false
+	end)
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_DisBtn_32, Name = "LocalScript"}, {__index = ui_DisBtn_32})
+	local button = script.Parent
+	local screenGui = button:FindFirstAncestorOfClass("SeaHunterGui")
+	
+	button.MouseButton1Click:Connect(function()
+		if screenGui then
+			screenGui:Destroy()
+		end
+	end)
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_ToggleBtn_33, Name = "LocalScript"}, {__index = ui_ToggleBtn_33})
 	local button = script.Parent
 	local frame = button.Parent:FindFirstChild("ScriptFrame")
 	
