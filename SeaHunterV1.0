@@ -4,14 +4,14 @@ local RunService = game:GetService("RunService")
 local player = Players.LocalPlayer
 local toggleButton = script.Parent -- الزر الرئيسي للتحكم
 
--- ربط مباشر بـ ScreenGui باسم SeaHunterGui ومسار ErrorLabel الدقيق
+-- ربط مباشر بـ ScreenGui باسم MirageGui والمسار الدقيق لـ ErrorLabel
 local playerGui = player:WaitForChild("PlayerGui")
-local seaHunterGui: ScreenGui = playerGui:WaitForChild("SeaHunterGui") :: ScreenGui
-local mainFrame = seaHunterGui:WaitForChild("MainFrame")
+local mirageGui: ScreenGui = playerGui:WaitForChild("MirageGui") :: ScreenGui
+local mainFrame = mirageGui:WaitForChild("MainFrame")
 local scriptFrame = mainFrame:WaitForChild("ScriptFrame")
 local errorLabel: TextLabel = scriptFrame:WaitForChild("ErrorLabel") :: TextLabel
 
-local buttonsFolder: Instance = seaHunterGui -- يبحث تلقائياً داخل SeaHunterGui
+local buttonsFolder: Instance = mirageGui -- يبحث تلقائياً داخل MirageGui حتى لو كانت الأزرار داخل Frame
 local targetButtonNames = { "AnchorBtn", "MoveBtn", "SeaEnemys", "RocksBtn" }
 
 local boatsFolder = workspace:WaitForChild("Boats")
@@ -28,7 +28,7 @@ local errorThread: thread? = nil
 local currentBoat: Model? = nil
 local handledMirages: { [Model]: boolean } = {}
 
--- الضغط على زر واجهة محدد بالاسم داخل SeaHunterGui
+-- الضغط على زر واجهة محدد بالاسم داخل MirageGui
 local function clickGuiButtonByName(btnName: string)
 	local btn = buttonsFolder:FindFirstChild(btnName, true)
 	if btn and btn:IsA("GuiButton") then
