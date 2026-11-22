@@ -975,10 +975,13 @@ task.spawn(function()
 	local Workspace = game:GetService("Workspace")
 	
 	local player = Players.LocalPlayer
-	local button = script.Parent -- الزر الرئيسي
+	local button = script.Parent
 	local parentGui = button.Parent
-	local textBox = parentGui:WaitForChild("SpeedBox") -- صندوق النص الذي تكتب فيه الرقم
-	local errorLabel = parentGui:FindFirstChild("ErrorLabel") -- اختياري لإظهار رسالة خطأ
+	local textBox = parentGui:WaitForChild("SpeedBox") -- عدل الاسم اذا يختلف
+	local errorLabel = parentGui:FindFirstChild("ErrorLabel")
+	
+	local MAX_LIMIT = 350
+	local targetSpeed = nil
 	
 	local function showError(msg)
 		if not errorLabel then return end
@@ -1006,48 +1009,63 @@ task.spawn(function()
 		return nil
 	end
 	
-	local function setBoatSpeeds(boat, newSpeed)
-		-- 1. تغيير Speed (IntValue)
+	local function applySpeed(boat, speed)
+		-- 1. Speed (IntValue)
 		local speedObj = boat:FindFirstChild("Speed", true)
-		if speedObj and speedObj:IsA("IntValue") then
-			speedObj.Value = math.floor(newSpeed)
+		if speedObj and (speedObj:IsA("IntValue") or speedObj:IsA("NumberValue")) then
+			speedObj.Value = math.floor(speed)
 		end
 	
-		-- 2. تغيير MaxSpeed (Attribute في موديل القارب)
-		if boat:GetAttribute("MaxSpeed") ~= nil then
-			boat:SetAttribute("MaxSpeed", newSpeed)
+		-- 2. MaxSpeed (Attribute)
+		boat:SetAttribute("MaxSpeed", speed)
+		local seat = boat:FindFirstChildWhichIsA("VehicleSeat", true)
+		if seat then
+			seat:SetAttribute("MaxSpeed", speed)
+			seat.MaxSpeed = speed
 		end
 	
-		-- 3. تغيير MaxSpeed في Control (سواء كان Attribute أو Value بداخل Control)
+		-- 3. MaxSpeed (in Control)
 		local controlObj = boat:FindFirstChild("Control", true)
 		if controlObj then
-			if controlObj:GetAttribute("MaxSpeed") ~= nil then
-				controlObj:SetAttribute("MaxSpeed", newSpeed)
-			end
-			local controlMaxSpeed = controlObj:FindFirstChild("MaxSpeed")
-			if controlMaxSpeed and (controlMaxSpeed:IsA("NumberValue") or controlMaxSpeed:IsA("IntValue")) then
-				controlMaxSpeed.Value = newSpeed
+			controlObj:SetAttribute("MaxSpeed", speed)
+			local ctrlMax = controlObj:FindFirstChild("MaxSpeed", true)
+			if ctrlMax and (ctrlMax:IsA("IntValue") or ctrlMax:IsA("NumberValue")) then
+				ctrlMax.Value = speed
 			end
 		end
 	end
 	
+	-- تثبيت السرعة كل 0.1 ثانية بعد الضغط حتى لا يرجعها سكربت القارب
+	task.spawn(function()
+		while task.wait(0.1) do
+			if targetSpeed then
+				local boat = findPlayerBoat()
+				if boat then
+					applySpeed(boat, targetSpeed)
+				end
+			end
+		end
+	end)
+	
 	button.MouseButton1Click:Connect(function()
-		-- تحويل النص إلى رقم والتحقق من صحته
-		local enteredNumber = tonumber(textBox.Text)
-		if not enteredNumber then
-			showError("اكتب رقماً صحيحاً أولاً")
+		local num = tonumber(textBox.Text)
+		if not num then
+			showError("اكتب رقماً صحيحاً")
 			return
 		end
 	
-		-- البحث عن قارب اللاعب
+		-- تحديد الحد الأقصى 350 وأقل قيمة 0
+		num = math.clamp(num, 0, MAX_LIMIT)
+		textBox.Text = tostring(num)
+	
 		local boat = findPlayerBoat()
 		if not boat then
 			showError("لا يوجد قارب لك اشتري قارب")
 			return
 		end
 	
-		-- تطبيق القيمة الجديدة على العناصر الثلاثة
-		setBoatSpeeds(boat, enteredNumber)
+		targetSpeed = num
+		applySpeed(boat, targetSpeed)
 	end)
 end)
 
