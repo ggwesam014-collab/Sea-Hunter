@@ -182,476 +182,399 @@ ui_SailTypeBtn_8.TextTransparency = 0
 ui_SailTypeBtn_8.AutoButtonColor = true
 ui_SailTypeBtn_8.Parent = ui_ScriptFrame_3
 
--- إنشاء: SelectFrame (Frame)
-local ui_SelectFrame_9 = Instance.new("Frame")
-ui_SelectFrame_9.Name = "SelectFrame"
-ui_SelectFrame_9.AnchorPoint = Vector2.new(0, 0)
-ui_SelectFrame_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ui_SelectFrame_9.BackgroundTransparency = 0
-ui_SelectFrame_9.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_SelectFrame_9.BorderSizePixel = 0
-ui_SelectFrame_9.Position = UDim2.new(-0.005, 0, 1, 0)
-ui_SelectFrame_9.Rotation = 0
-ui_SelectFrame_9.Size = UDim2.new(0.990099, 0, 2.93333, 0)
-ui_SelectFrame_9.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_SelectFrame_9.Visible = true
-ui_SelectFrame_9.ZIndex = 1
-ui_SelectFrame_9.ClipsDescendants = false
-ui_SelectFrame_9.LayoutOrder = 0
-ui_SelectFrame_9.Parent = ui_SailTypeBtn_8
-
--- إنشاء: DengerLvlBtn (TextButton)
-local ui_DengerLvlBtn_10 = Instance.new("TextButton")
-ui_DengerLvlBtn_10.Name = "DengerLvlBtn"
-ui_DengerLvlBtn_10.AnchorPoint = Vector2.new(0, 0)
-ui_DengerLvlBtn_10.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-ui_DengerLvlBtn_10.BackgroundTransparency = 0
-ui_DengerLvlBtn_10.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_DengerLvlBtn_10.BorderSizePixel = 0
-ui_DengerLvlBtn_10.Position = UDim2.new(-0.005, 0, -0.0132385, 0)
-ui_DengerLvlBtn_10.Rotation = 0
-ui_DengerLvlBtn_10.Size = UDim2.new(1.01, 0, 0.340909, 0)
-ui_DengerLvlBtn_10.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_DengerLvlBtn_10.Visible = true
-ui_DengerLvlBtn_10.ZIndex = 1
-ui_DengerLvlBtn_10.ClipsDescendants = false
-ui_DengerLvlBtn_10.LayoutOrder = 0
-ui_DengerLvlBtn_10.Text = "مستوى البحر"
-ui_DengerLvlBtn_10.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_DengerLvlBtn_10.TextSize = 14
-ui_DengerLvlBtn_10.TextScaled = false
-ui_DengerLvlBtn_10.TextWrapped = false
-ui_DengerLvlBtn_10.TextXAlignment = Enum.TextXAlignment.Center
-ui_DengerLvlBtn_10.TextYAlignment = Enum.TextYAlignment.Center
-ui_DengerLvlBtn_10.RichText = false
-ui_DengerLvlBtn_10.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_DengerLvlBtn_10.TextTransparency = 0
-ui_DengerLvlBtn_10.AutoButtonColor = true
-ui_DengerLvlBtn_10.Parent = ui_SelectFrame_9
-
--- إنشاء: MirageBtn (TextButton)
-local ui_MirageBtn_11 = Instance.new("TextButton")
-ui_MirageBtn_11.Name = "MirageBtn"
-ui_MirageBtn_11.AnchorPoint = Vector2.new(0, 0)
-ui_MirageBtn_11.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-ui_MirageBtn_11.BackgroundTransparency = 0
-ui_MirageBtn_11.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_MirageBtn_11.BorderSizePixel = 0
-ui_MirageBtn_11.Position = UDim2.new(-0.005, 0, 0.327671, 0)
-ui_MirageBtn_11.Rotation = 0
-ui_MirageBtn_11.Size = UDim2.new(1.01, 0, 0.340909, 0)
-ui_MirageBtn_11.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_MirageBtn_11.Visible = true
-ui_MirageBtn_11.ZIndex = 1
-ui_MirageBtn_11.ClipsDescendants = false
-ui_MirageBtn_11.LayoutOrder = 0
-ui_MirageBtn_11.Text = "جزيرة الميراج"
-ui_MirageBtn_11.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_MirageBtn_11.TextSize = 14
-ui_MirageBtn_11.TextScaled = false
-ui_MirageBtn_11.TextWrapped = false
-ui_MirageBtn_11.TextXAlignment = Enum.TextXAlignment.Center
-ui_MirageBtn_11.TextYAlignment = Enum.TextYAlignment.Center
-ui_MirageBtn_11.RichText = false
-ui_MirageBtn_11.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_MirageBtn_11.TextTransparency = 0
-ui_MirageBtn_11.AutoButtonColor = true
-ui_MirageBtn_11.Parent = ui_SelectFrame_9
-
--- إنشاء: KitsuneIsland (TextButton)
-local ui_KitsuneIsland_12 = Instance.new("TextButton")
-ui_KitsuneIsland_12.Name = "KitsuneIsland"
-ui_KitsuneIsland_12.AnchorPoint = Vector2.new(0, 0)
-ui_KitsuneIsland_12.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-ui_KitsuneIsland_12.BackgroundTransparency = 0
-ui_KitsuneIsland_12.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_KitsuneIsland_12.BorderSizePixel = 0
-ui_KitsuneIsland_12.Position = UDim2.new(-0.005, 0, 0.654438, 0)
-ui_KitsuneIsland_12.Rotation = 0
-ui_KitsuneIsland_12.Size = UDim2.new(1.01, 0, 0.340909, 0)
-ui_KitsuneIsland_12.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_KitsuneIsland_12.Visible = true
-ui_KitsuneIsland_12.ZIndex = 1
-ui_KitsuneIsland_12.ClipsDescendants = false
-ui_KitsuneIsland_12.LayoutOrder = 0
-ui_KitsuneIsland_12.Text = "جزيرة الكيتسوني"
-ui_KitsuneIsland_12.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_KitsuneIsland_12.TextSize = 14
-ui_KitsuneIsland_12.TextScaled = false
-ui_KitsuneIsland_12.TextWrapped = false
-ui_KitsuneIsland_12.TextXAlignment = Enum.TextXAlignment.Center
-ui_KitsuneIsland_12.TextYAlignment = Enum.TextYAlignment.Center
-ui_KitsuneIsland_12.RichText = false
-ui_KitsuneIsland_12.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_KitsuneIsland_12.TextTransparency = 0
-ui_KitsuneIsland_12.AutoButtonColor = true
-ui_KitsuneIsland_12.Parent = ui_SelectFrame_9
-
 -- إنشاء: Throttle (Frame)
-local ui_Throttle_13 = Instance.new("Frame")
-ui_Throttle_13.Name = "Throttle"
-ui_Throttle_13.AnchorPoint = Vector2.new(0, 0)
-ui_Throttle_13.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
-ui_Throttle_13.BackgroundTransparency = 0
-ui_Throttle_13.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_Throttle_13.BorderSizePixel = 0
-ui_Throttle_13.Position = UDim2.new(0.281818, 0, 0.251064, 0)
-ui_Throttle_13.Rotation = 0
-ui_Throttle_13.Size = UDim2.new(0.681818, 0, 0.0212766, 0)
-ui_Throttle_13.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_Throttle_13.Visible = true
-ui_Throttle_13.ZIndex = 1
-ui_Throttle_13.ClipsDescendants = false
-ui_Throttle_13.LayoutOrder = 0
-ui_Throttle_13.Parent = ui_ScriptFrame_3
+local ui_Throttle_9 = Instance.new("Frame")
+ui_Throttle_9.Name = "Throttle"
+ui_Throttle_9.AnchorPoint = Vector2.new(0, 0)
+ui_Throttle_9.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+ui_Throttle_9.BackgroundTransparency = 0
+ui_Throttle_9.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Throttle_9.BorderSizePixel = 0
+ui_Throttle_9.Position = UDim2.new(0.281818, 0, 0.251064, 0)
+ui_Throttle_9.Rotation = 0
+ui_Throttle_9.Size = UDim2.new(0.681818, 0, 0.0212766, 0)
+ui_Throttle_9.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Throttle_9.Visible = true
+ui_Throttle_9.ZIndex = 1
+ui_Throttle_9.ClipsDescendants = false
+ui_Throttle_9.LayoutOrder = 0
+ui_Throttle_9.Parent = ui_ScriptFrame_3
 
 -- إنشاء: TextButton (TextButton)
-local ui_TextButton_14 = Instance.new("TextButton")
-ui_TextButton_14.Name = "TextButton"
-ui_TextButton_14.AnchorPoint = Vector2.new(0, 0)
-ui_TextButton_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ui_TextButton_14.BackgroundTransparency = 1
-ui_TextButton_14.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_TextButton_14.BorderSizePixel = 0
-ui_TextButton_14.Position = UDim2.new(-0.03, 0, -2.6, 0)
-ui_TextButton_14.Rotation = 0
-ui_TextButton_14.Size = UDim2.new(0.1, 0, 6, 0)
-ui_TextButton_14.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_TextButton_14.Visible = true
-ui_TextButton_14.ZIndex = 1
-ui_TextButton_14.ClipsDescendants = false
-ui_TextButton_14.LayoutOrder = 0
-ui_TextButton_14.Text = "⛵"
-ui_TextButton_14.TextColor3 = Color3.fromRGB(0, 0, 0)
-ui_TextButton_14.TextSize = 14
-ui_TextButton_14.TextScaled = true
-ui_TextButton_14.TextWrapped = true
-ui_TextButton_14.TextXAlignment = Enum.TextXAlignment.Center
-ui_TextButton_14.TextYAlignment = Enum.TextYAlignment.Center
-ui_TextButton_14.RichText = false
-ui_TextButton_14.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-ui_TextButton_14.TextTransparency = 0
-ui_TextButton_14.AutoButtonColor = true
-ui_TextButton_14.Parent = ui_Throttle_13
+local ui_TextButton_10 = Instance.new("TextButton")
+ui_TextButton_10.Name = "TextButton"
+ui_TextButton_10.AnchorPoint = Vector2.new(0, 0)
+ui_TextButton_10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_TextButton_10.BackgroundTransparency = 1
+ui_TextButton_10.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_TextButton_10.BorderSizePixel = 0
+ui_TextButton_10.Position = UDim2.new(-0.03, 0, -2.6, 0)
+ui_TextButton_10.Rotation = 0
+ui_TextButton_10.Size = UDim2.new(0.1, 0, 6, 0)
+ui_TextButton_10.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_TextButton_10.Visible = true
+ui_TextButton_10.ZIndex = 1
+ui_TextButton_10.ClipsDescendants = false
+ui_TextButton_10.LayoutOrder = 0
+ui_TextButton_10.Text = "⛵"
+ui_TextButton_10.TextColor3 = Color3.fromRGB(0, 0, 0)
+ui_TextButton_10.TextSize = 14
+ui_TextButton_10.TextScaled = true
+ui_TextButton_10.TextWrapped = true
+ui_TextButton_10.TextXAlignment = Enum.TextXAlignment.Center
+ui_TextButton_10.TextYAlignment = Enum.TextYAlignment.Center
+ui_TextButton_10.RichText = false
+ui_TextButton_10.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ui_TextButton_10.TextTransparency = 0
+ui_TextButton_10.AutoButtonColor = true
+ui_TextButton_10.Parent = ui_Throttle_9
 
 -- إنشاء: Title (TextLabel)
-local ui_Title_15 = Instance.new("TextLabel")
-ui_Title_15.Name = "Title"
-ui_Title_15.AnchorPoint = Vector2.new(0, 0)
-ui_Title_15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ui_Title_15.BackgroundTransparency = 1
-ui_Title_15.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_Title_15.BorderSizePixel = 0
-ui_Title_15.Position = UDim2.new(0.151515, 0, 1, 0)
-ui_Title_15.Rotation = 0
-ui_Title_15.Size = UDim2.new(0.693333, 0, 4.8, 0)
-ui_Title_15.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_Title_15.Visible = true
-ui_Title_15.ZIndex = 1
-ui_Title_15.ClipsDescendants = false
-ui_Title_15.LayoutOrder = 0
-ui_Title_15.Text = "السرعة"
-ui_Title_15.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_Title_15.TextSize = 14
-ui_Title_15.TextScaled = false
-ui_Title_15.TextWrapped = false
-ui_Title_15.TextXAlignment = Enum.TextXAlignment.Center
-ui_Title_15.TextYAlignment = Enum.TextYAlignment.Center
-ui_Title_15.RichText = false
-ui_Title_15.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_Title_15.TextTransparency = 0
-ui_Title_15.Parent = ui_Throttle_13
+local ui_Title_11 = Instance.new("TextLabel")
+ui_Title_11.Name = "Title"
+ui_Title_11.AnchorPoint = Vector2.new(0, 0)
+ui_Title_11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_Title_11.BackgroundTransparency = 1
+ui_Title_11.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Title_11.BorderSizePixel = 0
+ui_Title_11.Position = UDim2.new(0.151515, 0, 1, 0)
+ui_Title_11.Rotation = 0
+ui_Title_11.Size = UDim2.new(0.693333, 0, 4.8, 0)
+ui_Title_11.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Title_11.Visible = true
+ui_Title_11.ZIndex = 1
+ui_Title_11.ClipsDescendants = false
+ui_Title_11.LayoutOrder = 0
+ui_Title_11.Text = "السرعة"
+ui_Title_11.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_Title_11.TextSize = 14
+ui_Title_11.TextScaled = false
+ui_Title_11.TextWrapped = false
+ui_Title_11.TextXAlignment = Enum.TextXAlignment.Center
+ui_Title_11.TextYAlignment = Enum.TextYAlignment.Center
+ui_Title_11.RichText = false
+ui_Title_11.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_Title_11.TextTransparency = 0
+ui_Title_11.Parent = ui_Throttle_9
 
 -- إنشاء: TextLabel (TextLabel)
-local ui_TextLabel_16 = Instance.new("TextLabel")
-ui_TextLabel_16.Name = "TextLabel"
-ui_TextLabel_16.AnchorPoint = Vector2.new(0, 0)
-ui_TextLabel_16.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ui_TextLabel_16.BackgroundTransparency = 1
-ui_TextLabel_16.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_TextLabel_16.BorderSizePixel = 0
-ui_TextLabel_16.Position = UDim2.new(0.424849, 0, 5.8, 0)
-ui_TextLabel_16.Rotation = 0
-ui_TextLabel_16.Size = UDim2.new(0.15, 0, 2.2, 0)
-ui_TextLabel_16.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_TextLabel_16.Visible = true
-ui_TextLabel_16.ZIndex = 1
-ui_TextLabel_16.ClipsDescendants = false
-ui_TextLabel_16.LayoutOrder = 0
-ui_TextLabel_16.Text = "--"
-ui_TextLabel_16.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_TextLabel_16.TextSize = 14
-ui_TextLabel_16.TextScaled = false
-ui_TextLabel_16.TextWrapped = false
-ui_TextLabel_16.TextXAlignment = Enum.TextXAlignment.Center
-ui_TextLabel_16.TextYAlignment = Enum.TextYAlignment.Center
-ui_TextLabel_16.RichText = false
-ui_TextLabel_16.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-ui_TextLabel_16.TextTransparency = 0
-ui_TextLabel_16.Parent = ui_Throttle_13
+local ui_TextLabel_12 = Instance.new("TextLabel")
+ui_TextLabel_12.Name = "TextLabel"
+ui_TextLabel_12.AnchorPoint = Vector2.new(0, 0)
+ui_TextLabel_12.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_TextLabel_12.BackgroundTransparency = 1
+ui_TextLabel_12.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_TextLabel_12.BorderSizePixel = 0
+ui_TextLabel_12.Position = UDim2.new(0.424849, 0, 5.8, 0)
+ui_TextLabel_12.Rotation = 0
+ui_TextLabel_12.Size = UDim2.new(0.15, 0, 2.2, 0)
+ui_TextLabel_12.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_TextLabel_12.Visible = true
+ui_TextLabel_12.ZIndex = 1
+ui_TextLabel_12.ClipsDescendants = false
+ui_TextLabel_12.LayoutOrder = 0
+ui_TextLabel_12.Text = "--"
+ui_TextLabel_12.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_TextLabel_12.TextSize = 14
+ui_TextLabel_12.TextScaled = false
+ui_TextLabel_12.TextWrapped = false
+ui_TextLabel_12.TextXAlignment = Enum.TextXAlignment.Center
+ui_TextLabel_12.TextYAlignment = Enum.TextYAlignment.Center
+ui_TextLabel_12.RichText = false
+ui_TextLabel_12.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ui_TextLabel_12.TextTransparency = 0
+ui_TextLabel_12.Parent = ui_Throttle_9
 
 -- إنشاء: Name1 (TextLabel)
-local ui_Name1_17 = Instance.new("TextLabel")
-ui_Name1_17.Name = "Name1"
-ui_Name1_17.AnchorPoint = Vector2.new(0, 0)
-ui_Name1_17.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
-ui_Name1_17.BackgroundTransparency = 0
-ui_Name1_17.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_Name1_17.BorderSizePixel = 0
-ui_Name1_17.Position = UDim2.new(0.261364, 0, 0.144681, 0)
-ui_Name1_17.Rotation = 0
-ui_Name1_17.Size = UDim2.new(0.722727, 0, 0.0680851, 0)
-ui_Name1_17.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_Name1_17.Visible = true
-ui_Name1_17.ZIndex = 1
-ui_Name1_17.ClipsDescendants = false
-ui_Name1_17.LayoutOrder = 0
-ui_Name1_17.Text = "سرعة القارب"
-ui_Name1_17.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_Name1_17.TextSize = 14
-ui_Name1_17.TextScaled = false
-ui_Name1_17.TextWrapped = false
-ui_Name1_17.TextXAlignment = Enum.TextXAlignment.Center
-ui_Name1_17.TextYAlignment = Enum.TextYAlignment.Center
-ui_Name1_17.RichText = false
-ui_Name1_17.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_Name1_17.TextTransparency = 0
-ui_Name1_17.Parent = ui_ScriptFrame_3
+local ui_Name1_13 = Instance.new("TextLabel")
+ui_Name1_13.Name = "Name1"
+ui_Name1_13.AnchorPoint = Vector2.new(0, 0)
+ui_Name1_13.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+ui_Name1_13.BackgroundTransparency = 0
+ui_Name1_13.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Name1_13.BorderSizePixel = 0
+ui_Name1_13.Position = UDim2.new(0.261364, 0, 0.144681, 0)
+ui_Name1_13.Rotation = 0
+ui_Name1_13.Size = UDim2.new(0.722727, 0, 0.0680851, 0)
+ui_Name1_13.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Name1_13.Visible = true
+ui_Name1_13.ZIndex = 1
+ui_Name1_13.ClipsDescendants = false
+ui_Name1_13.LayoutOrder = 0
+ui_Name1_13.Text = "سرعة القارب"
+ui_Name1_13.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_Name1_13.TextSize = 14
+ui_Name1_13.TextScaled = false
+ui_Name1_13.TextWrapped = false
+ui_Name1_13.TextXAlignment = Enum.TextXAlignment.Center
+ui_Name1_13.TextYAlignment = Enum.TextYAlignment.Center
+ui_Name1_13.RichText = false
+ui_Name1_13.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_Name1_13.TextTransparency = 0
+ui_Name1_13.Parent = ui_ScriptFrame_3
 
 -- إنشاء: RocksBtn (TextButton)
-local ui_RocksBtn_18 = Instance.new("TextButton")
-ui_RocksBtn_18.Name = "RocksBtn"
-ui_RocksBtn_18.AnchorPoint = Vector2.new(0, 0)
-ui_RocksBtn_18.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-ui_RocksBtn_18.BackgroundTransparency = 0
-ui_RocksBtn_18.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_RocksBtn_18.BorderSizePixel = 0
-ui_RocksBtn_18.Position = UDim2.new(0.509091, 0, 0.434043, 0)
-ui_RocksBtn_18.Rotation = 0
-ui_RocksBtn_18.Size = UDim2.new(0.227273, 0, 0.12766, 0)
-ui_RocksBtn_18.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_RocksBtn_18.Visible = true
-ui_RocksBtn_18.ZIndex = 1
-ui_RocksBtn_18.ClipsDescendants = false
-ui_RocksBtn_18.LayoutOrder = 0
-ui_RocksBtn_18.Text = "حذف الصخور🗻"
-ui_RocksBtn_18.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_RocksBtn_18.TextSize = 14
-ui_RocksBtn_18.TextScaled = false
-ui_RocksBtn_18.TextWrapped = false
-ui_RocksBtn_18.TextXAlignment = Enum.TextXAlignment.Center
-ui_RocksBtn_18.TextYAlignment = Enum.TextYAlignment.Center
-ui_RocksBtn_18.RichText = false
-ui_RocksBtn_18.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_RocksBtn_18.TextTransparency = 0
-ui_RocksBtn_18.AutoButtonColor = true
-ui_RocksBtn_18.Parent = ui_ScriptFrame_3
+local ui_RocksBtn_14 = Instance.new("TextButton")
+ui_RocksBtn_14.Name = "RocksBtn"
+ui_RocksBtn_14.AnchorPoint = Vector2.new(0, 0)
+ui_RocksBtn_14.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_RocksBtn_14.BackgroundTransparency = 0
+ui_RocksBtn_14.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_RocksBtn_14.BorderSizePixel = 0
+ui_RocksBtn_14.Position = UDim2.new(0.509091, 0, 0.434043, 0)
+ui_RocksBtn_14.Rotation = 0
+ui_RocksBtn_14.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_RocksBtn_14.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_RocksBtn_14.Visible = true
+ui_RocksBtn_14.ZIndex = 1
+ui_RocksBtn_14.ClipsDescendants = false
+ui_RocksBtn_14.LayoutOrder = 0
+ui_RocksBtn_14.Text = "حذف الصخور🗻"
+ui_RocksBtn_14.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_RocksBtn_14.TextSize = 14
+ui_RocksBtn_14.TextScaled = false
+ui_RocksBtn_14.TextWrapped = false
+ui_RocksBtn_14.TextXAlignment = Enum.TextXAlignment.Center
+ui_RocksBtn_14.TextYAlignment = Enum.TextYAlignment.Center
+ui_RocksBtn_14.RichText = false
+ui_RocksBtn_14.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_RocksBtn_14.TextTransparency = 0
+ui_RocksBtn_14.AutoButtonColor = true
+ui_RocksBtn_14.Parent = ui_ScriptFrame_3
 
 -- إنشاء: MoveBtn (TextButton)
-local ui_MoveBtn_19 = Instance.new("TextButton")
-ui_MoveBtn_19.Name = "MoveBtn"
-ui_MoveBtn_19.AnchorPoint = Vector2.new(0, 0)
-ui_MoveBtn_19.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-ui_MoveBtn_19.BackgroundTransparency = 0
-ui_MoveBtn_19.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_MoveBtn_19.BorderSizePixel = 0
-ui_MoveBtn_19.Position = UDim2.new(0.261364, 0, 0.434043, 0)
-ui_MoveBtn_19.Rotation = 0
-ui_MoveBtn_19.Size = UDim2.new(0.227273, 0, 0.12766, 0)
-ui_MoveBtn_19.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_MoveBtn_19.Visible = true
-ui_MoveBtn_19.ZIndex = 1
-ui_MoveBtn_19.ClipsDescendants = false
-ui_MoveBtn_19.LayoutOrder = 0
-ui_MoveBtn_19.Text = "التحرك للأمام"
-ui_MoveBtn_19.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_MoveBtn_19.TextSize = 14
-ui_MoveBtn_19.TextScaled = false
-ui_MoveBtn_19.TextWrapped = false
-ui_MoveBtn_19.TextXAlignment = Enum.TextXAlignment.Center
-ui_MoveBtn_19.TextYAlignment = Enum.TextYAlignment.Center
-ui_MoveBtn_19.RichText = false
-ui_MoveBtn_19.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_MoveBtn_19.TextTransparency = 0
-ui_MoveBtn_19.AutoButtonColor = true
-ui_MoveBtn_19.Parent = ui_ScriptFrame_3
+local ui_MoveBtn_15 = Instance.new("TextButton")
+ui_MoveBtn_15.Name = "MoveBtn"
+ui_MoveBtn_15.AnchorPoint = Vector2.new(0, 0)
+ui_MoveBtn_15.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_MoveBtn_15.BackgroundTransparency = 0
+ui_MoveBtn_15.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_MoveBtn_15.BorderSizePixel = 0
+ui_MoveBtn_15.Position = UDim2.new(0.261364, 0, 0.434043, 0)
+ui_MoveBtn_15.Rotation = 0
+ui_MoveBtn_15.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_MoveBtn_15.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_MoveBtn_15.Visible = true
+ui_MoveBtn_15.ZIndex = 1
+ui_MoveBtn_15.ClipsDescendants = false
+ui_MoveBtn_15.LayoutOrder = 0
+ui_MoveBtn_15.Text = "التحرك للأمام"
+ui_MoveBtn_15.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_MoveBtn_15.TextSize = 14
+ui_MoveBtn_15.TextScaled = false
+ui_MoveBtn_15.TextWrapped = false
+ui_MoveBtn_15.TextXAlignment = Enum.TextXAlignment.Center
+ui_MoveBtn_15.TextYAlignment = Enum.TextYAlignment.Center
+ui_MoveBtn_15.RichText = false
+ui_MoveBtn_15.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_MoveBtn_15.TextTransparency = 0
+ui_MoveBtn_15.AutoButtonColor = true
+ui_MoveBtn_15.Parent = ui_ScriptFrame_3
 
 -- إنشاء: SeaEnemys (TextButton)
-local ui_SeaEnemys_20 = Instance.new("TextButton")
-ui_SeaEnemys_20.Name = "SeaEnemys"
-ui_SeaEnemys_20.AnchorPoint = Vector2.new(0, 0)
-ui_SeaEnemys_20.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-ui_SeaEnemys_20.BackgroundTransparency = 0
-ui_SeaEnemys_20.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_SeaEnemys_20.BorderSizePixel = 0
-ui_SeaEnemys_20.Position = UDim2.new(0.756818, 0, 0.434043, 0)
-ui_SeaEnemys_20.Rotation = 0
-ui_SeaEnemys_20.Size = UDim2.new(0.227273, 0, 0.12766, 0)
-ui_SeaEnemys_20.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_SeaEnemys_20.Visible = true
-ui_SeaEnemys_20.ZIndex = 1
-ui_SeaEnemys_20.ClipsDescendants = false
-ui_SeaEnemys_20.LayoutOrder = 0
-ui_SeaEnemys_20.Text = "حذف الوحوش"
-ui_SeaEnemys_20.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_SeaEnemys_20.TextSize = 14
-ui_SeaEnemys_20.TextScaled = false
-ui_SeaEnemys_20.TextWrapped = true
-ui_SeaEnemys_20.TextXAlignment = Enum.TextXAlignment.Center
-ui_SeaEnemys_20.TextYAlignment = Enum.TextYAlignment.Center
-ui_SeaEnemys_20.RichText = false
-ui_SeaEnemys_20.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_SeaEnemys_20.TextTransparency = 0
-ui_SeaEnemys_20.AutoButtonColor = true
-ui_SeaEnemys_20.Parent = ui_ScriptFrame_3
+local ui_SeaEnemys_16 = Instance.new("TextButton")
+ui_SeaEnemys_16.Name = "SeaEnemys"
+ui_SeaEnemys_16.AnchorPoint = Vector2.new(0, 0)
+ui_SeaEnemys_16.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_SeaEnemys_16.BackgroundTransparency = 0
+ui_SeaEnemys_16.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_SeaEnemys_16.BorderSizePixel = 0
+ui_SeaEnemys_16.Position = UDim2.new(0.756818, 0, 0.434043, 0)
+ui_SeaEnemys_16.Rotation = 0
+ui_SeaEnemys_16.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_SeaEnemys_16.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_SeaEnemys_16.Visible = true
+ui_SeaEnemys_16.ZIndex = 1
+ui_SeaEnemys_16.ClipsDescendants = false
+ui_SeaEnemys_16.LayoutOrder = 0
+ui_SeaEnemys_16.Text = "حذف الوحوش"
+ui_SeaEnemys_16.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_SeaEnemys_16.TextSize = 14
+ui_SeaEnemys_16.TextScaled = false
+ui_SeaEnemys_16.TextWrapped = true
+ui_SeaEnemys_16.TextXAlignment = Enum.TextXAlignment.Center
+ui_SeaEnemys_16.TextYAlignment = Enum.TextYAlignment.Center
+ui_SeaEnemys_16.RichText = false
+ui_SeaEnemys_16.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_SeaEnemys_16.TextTransparency = 0
+ui_SeaEnemys_16.AutoButtonColor = true
+ui_SeaEnemys_16.Parent = ui_ScriptFrame_3
 
 -- إنشاء: SkyStuts (TextLabel)
-local ui_SkyStuts_21 = Instance.new("TextLabel")
-ui_SkyStuts_21.Name = "SkyStuts"
-ui_SkyStuts_21.AnchorPoint = Vector2.new(0, 0)
-ui_SkyStuts_21.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ui_SkyStuts_21.BackgroundTransparency = 1
-ui_SkyStuts_21.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_SkyStuts_21.BorderSizePixel = 0
-ui_SkyStuts_21.Position = UDim2.new(0.809091, 0, 0.910638, 0)
-ui_SkyStuts_21.Rotation = 0
-ui_SkyStuts_21.Size = UDim2.new(0.175, 0, 0.0638298, 0)
-ui_SkyStuts_21.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_SkyStuts_21.Visible = true
-ui_SkyStuts_21.ZIndex = 1
-ui_SkyStuts_21.ClipsDescendants = false
-ui_SkyStuts_21.LayoutOrder = 0
-ui_SkyStuts_21.Text = "حالة السماء:"
-ui_SkyStuts_21.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_SkyStuts_21.TextSize = 14
-ui_SkyStuts_21.TextScaled = false
-ui_SkyStuts_21.TextWrapped = false
-ui_SkyStuts_21.TextXAlignment = Enum.TextXAlignment.Right
-ui_SkyStuts_21.TextYAlignment = Enum.TextYAlignment.Center
-ui_SkyStuts_21.RichText = false
-ui_SkyStuts_21.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_SkyStuts_21.TextTransparency = 0
-ui_SkyStuts_21.Parent = ui_ScriptFrame_3
+local ui_SkyStuts_17 = Instance.new("TextLabel")
+ui_SkyStuts_17.Name = "SkyStuts"
+ui_SkyStuts_17.AnchorPoint = Vector2.new(0, 0)
+ui_SkyStuts_17.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_SkyStuts_17.BackgroundTransparency = 1
+ui_SkyStuts_17.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_SkyStuts_17.BorderSizePixel = 0
+ui_SkyStuts_17.Position = UDim2.new(0.809091, 0, 0.910638, 0)
+ui_SkyStuts_17.Rotation = 0
+ui_SkyStuts_17.Size = UDim2.new(0.175, 0, 0.0638298, 0)
+ui_SkyStuts_17.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_SkyStuts_17.Visible = true
+ui_SkyStuts_17.ZIndex = 1
+ui_SkyStuts_17.ClipsDescendants = false
+ui_SkyStuts_17.LayoutOrder = 0
+ui_SkyStuts_17.Text = "حالة السماء:"
+ui_SkyStuts_17.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_SkyStuts_17.TextSize = 14
+ui_SkyStuts_17.TextScaled = false
+ui_SkyStuts_17.TextWrapped = false
+ui_SkyStuts_17.TextXAlignment = Enum.TextXAlignment.Right
+ui_SkyStuts_17.TextYAlignment = Enum.TextYAlignment.Center
+ui_SkyStuts_17.RichText = false
+ui_SkyStuts_17.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_SkyStuts_17.TextTransparency = 0
+ui_SkyStuts_17.Parent = ui_ScriptFrame_3
 
 -- إنشاء: MoonStuts (TextLabel)
-local ui_MoonStuts_22 = Instance.new("TextLabel")
-ui_MoonStuts_22.Name = "MoonStuts"
-ui_MoonStuts_22.AnchorPoint = Vector2.new(0, 0)
-ui_MoonStuts_22.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ui_MoonStuts_22.BackgroundTransparency = 1
-ui_MoonStuts_22.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_MoonStuts_22.BorderSizePixel = 0
-ui_MoonStuts_22.Position = UDim2.new(0.459091, 0, 0.910638, 0)
-ui_MoonStuts_22.Rotation = 0
-ui_MoonStuts_22.Size = UDim2.new(0.213636, 0, 0.0638298, 0)
-ui_MoonStuts_22.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_MoonStuts_22.Visible = true
-ui_MoonStuts_22.ZIndex = 1
-ui_MoonStuts_22.ClipsDescendants = false
-ui_MoonStuts_22.LayoutOrder = 0
-ui_MoonStuts_22.Text = "حالة القمر: "
-ui_MoonStuts_22.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_MoonStuts_22.TextSize = 14
-ui_MoonStuts_22.TextScaled = false
-ui_MoonStuts_22.TextWrapped = false
-ui_MoonStuts_22.TextXAlignment = Enum.TextXAlignment.Right
-ui_MoonStuts_22.TextYAlignment = Enum.TextYAlignment.Center
-ui_MoonStuts_22.RichText = false
-ui_MoonStuts_22.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_MoonStuts_22.TextTransparency = 0
-ui_MoonStuts_22.Parent = ui_ScriptFrame_3
+local ui_MoonStuts_18 = Instance.new("TextLabel")
+ui_MoonStuts_18.Name = "MoonStuts"
+ui_MoonStuts_18.AnchorPoint = Vector2.new(0, 0)
+ui_MoonStuts_18.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_MoonStuts_18.BackgroundTransparency = 1
+ui_MoonStuts_18.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_MoonStuts_18.BorderSizePixel = 0
+ui_MoonStuts_18.Position = UDim2.new(0.459091, 0, 0.910638, 0)
+ui_MoonStuts_18.Rotation = 0
+ui_MoonStuts_18.Size = UDim2.new(0.213636, 0, 0.0638298, 0)
+ui_MoonStuts_18.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_MoonStuts_18.Visible = true
+ui_MoonStuts_18.ZIndex = 1
+ui_MoonStuts_18.ClipsDescendants = false
+ui_MoonStuts_18.LayoutOrder = 0
+ui_MoonStuts_18.Text = "حالة القمر: "
+ui_MoonStuts_18.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_MoonStuts_18.TextSize = 14
+ui_MoonStuts_18.TextScaled = false
+ui_MoonStuts_18.TextWrapped = false
+ui_MoonStuts_18.TextXAlignment = Enum.TextXAlignment.Right
+ui_MoonStuts_18.TextYAlignment = Enum.TextYAlignment.Center
+ui_MoonStuts_18.RichText = false
+ui_MoonStuts_18.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_MoonStuts_18.TextTransparency = 0
+ui_MoonStuts_18.Parent = ui_ScriptFrame_3
 
 -- إنشاء: Clock (TextLabel)
-local ui_Clock_23 = Instance.new("TextLabel")
-ui_Clock_23.Name = "Clock"
-ui_Clock_23.AnchorPoint = Vector2.new(0, 0)
-ui_Clock_23.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ui_Clock_23.BackgroundTransparency = 1
-ui_Clock_23.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_Clock_23.BorderSizePixel = 0
-ui_Clock_23.Position = UDim2.new(0.145455, 0, 0.910638, 0)
-ui_Clock_23.Rotation = 0
-ui_Clock_23.Size = UDim2.new(0.213636, 0, 0.0638298, 0)
-ui_Clock_23.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_Clock_23.Visible = true
-ui_Clock_23.ZIndex = 1
-ui_Clock_23.ClipsDescendants = false
-ui_Clock_23.LayoutOrder = 0
-ui_Clock_23.Text = "الساعة:"
-ui_Clock_23.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_Clock_23.TextSize = 14
-ui_Clock_23.TextScaled = false
-ui_Clock_23.TextWrapped = false
-ui_Clock_23.TextXAlignment = Enum.TextXAlignment.Right
-ui_Clock_23.TextYAlignment = Enum.TextYAlignment.Center
-ui_Clock_23.RichText = false
-ui_Clock_23.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_Clock_23.TextTransparency = 0
-ui_Clock_23.Parent = ui_ScriptFrame_3
+local ui_Clock_19 = Instance.new("TextLabel")
+ui_Clock_19.Name = "Clock"
+ui_Clock_19.AnchorPoint = Vector2.new(0, 0)
+ui_Clock_19.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_Clock_19.BackgroundTransparency = 1
+ui_Clock_19.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Clock_19.BorderSizePixel = 0
+ui_Clock_19.Position = UDim2.new(0.770454, 0, 0.787234, 0)
+ui_Clock_19.Rotation = 0
+ui_Clock_19.Size = UDim2.new(0.213636, 0, 0.0638298, 0)
+ui_Clock_19.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Clock_19.Visible = true
+ui_Clock_19.ZIndex = 1
+ui_Clock_19.ClipsDescendants = false
+ui_Clock_19.LayoutOrder = 0
+ui_Clock_19.Text = "الساعة:"
+ui_Clock_19.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_Clock_19.TextSize = 14
+ui_Clock_19.TextScaled = false
+ui_Clock_19.TextWrapped = false
+ui_Clock_19.TextXAlignment = Enum.TextXAlignment.Right
+ui_Clock_19.TextYAlignment = Enum.TextYAlignment.Center
+ui_Clock_19.RichText = false
+ui_Clock_19.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_Clock_19.TextTransparency = 0
+ui_Clock_19.Parent = ui_ScriptFrame_3
 
 -- إنشاء: AnchorBtn (TextButton)
-local ui_AnchorBtn_24 = Instance.new("TextButton")
-ui_AnchorBtn_24.Name = "AnchorBtn"
-ui_AnchorBtn_24.AnchorPoint = Vector2.new(0, 0)
-ui_AnchorBtn_24.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-ui_AnchorBtn_24.BackgroundTransparency = 0
-ui_AnchorBtn_24.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_AnchorBtn_24.BorderSizePixel = 0
-ui_AnchorBtn_24.Position = UDim2.new(0.756818, 0, 0.604255, 0)
-ui_AnchorBtn_24.Rotation = 0
-ui_AnchorBtn_24.Size = UDim2.new(0.227273, 0, 0.12766, 0)
-ui_AnchorBtn_24.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_AnchorBtn_24.Visible = true
-ui_AnchorBtn_24.ZIndex = 1
-ui_AnchorBtn_24.ClipsDescendants = false
-ui_AnchorBtn_24.LayoutOrder = 0
-ui_AnchorBtn_24.Text = "التثبيت بالكرسي⛓"
-ui_AnchorBtn_24.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_AnchorBtn_24.TextSize = 14
-ui_AnchorBtn_24.TextScaled = false
-ui_AnchorBtn_24.TextWrapped = false
-ui_AnchorBtn_24.TextXAlignment = Enum.TextXAlignment.Center
-ui_AnchorBtn_24.TextYAlignment = Enum.TextYAlignment.Center
-ui_AnchorBtn_24.RichText = false
-ui_AnchorBtn_24.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_AnchorBtn_24.TextTransparency = 0
-ui_AnchorBtn_24.AutoButtonColor = true
-ui_AnchorBtn_24.Parent = ui_ScriptFrame_3
+local ui_AnchorBtn_20 = Instance.new("TextButton")
+ui_AnchorBtn_20.Name = "AnchorBtn"
+ui_AnchorBtn_20.AnchorPoint = Vector2.new(0, 0)
+ui_AnchorBtn_20.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_AnchorBtn_20.BackgroundTransparency = 0
+ui_AnchorBtn_20.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_AnchorBtn_20.BorderSizePixel = 0
+ui_AnchorBtn_20.Position = UDim2.new(0.756818, 0, 0.604255, 0)
+ui_AnchorBtn_20.Rotation = 0
+ui_AnchorBtn_20.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_AnchorBtn_20.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_AnchorBtn_20.Visible = true
+ui_AnchorBtn_20.ZIndex = 1
+ui_AnchorBtn_20.ClipsDescendants = false
+ui_AnchorBtn_20.LayoutOrder = 0
+ui_AnchorBtn_20.Text = "التثبيت بالكرسي⛓"
+ui_AnchorBtn_20.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_AnchorBtn_20.TextSize = 14
+ui_AnchorBtn_20.TextScaled = false
+ui_AnchorBtn_20.TextWrapped = false
+ui_AnchorBtn_20.TextXAlignment = Enum.TextXAlignment.Center
+ui_AnchorBtn_20.TextYAlignment = Enum.TextYAlignment.Center
+ui_AnchorBtn_20.RichText = false
+ui_AnchorBtn_20.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_AnchorBtn_20.TextTransparency = 0
+ui_AnchorBtn_20.AutoButtonColor = true
+ui_AnchorBtn_20.Parent = ui_ScriptFrame_3
+
+-- إنشاء: TextLabel (TextLabel)
+local ui_TextLabel_21 = Instance.new("TextLabel")
+ui_TextLabel_21.Name = "TextLabel"
+ui_TextLabel_21.AnchorPoint = Vector2.new(0, 0)
+ui_TextLabel_21.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ui_TextLabel_21.BackgroundTransparency = 0.4000000059604645
+ui_TextLabel_21.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_TextLabel_21.BorderSizePixel = 0
+ui_TextLabel_21.Position = UDim2.new(-0.00227273, 0, 0.106383, 0)
+ui_TextLabel_21.Rotation = 0
+ui_TextLabel_21.Size = UDim2.new(0, 108, 0, 79)
+ui_TextLabel_21.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_TextLabel_21.Visible = true
+ui_TextLabel_21.ZIndex = 1
+ui_TextLabel_21.ClipsDescendants = false
+ui_TextLabel_21.LayoutOrder = 0
+ui_TextLabel_21.Text = "Soon🔒"
+ui_TextLabel_21.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_TextLabel_21.TextSize = 14
+ui_TextLabel_21.TextScaled = true
+ui_TextLabel_21.TextWrapped = true
+ui_TextLabel_21.TextXAlignment = Enum.TextXAlignment.Center
+ui_TextLabel_21.TextYAlignment = Enum.TextYAlignment.Center
+ui_TextLabel_21.RichText = false
+ui_TextLabel_21.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ui_TextLabel_21.TextTransparency = 0
+ui_TextLabel_21.Parent = ui_ScriptFrame_3
 
 -- إنشاء: ToggleBtn (TextButton)
-local ui_ToggleBtn_25 = Instance.new("TextButton")
-ui_ToggleBtn_25.Name = "ToggleBtn"
-ui_ToggleBtn_25.AnchorPoint = Vector2.new(0, 0)
-ui_ToggleBtn_25.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
-ui_ToggleBtn_25.BackgroundTransparency = 0
-ui_ToggleBtn_25.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_ToggleBtn_25.BorderSizePixel = 0
-ui_ToggleBtn_25.Position = UDim2.new(0.912775, 0, 0.013308, 0)
-ui_ToggleBtn_25.Rotation = 0
-ui_ToggleBtn_25.Size = UDim2.new(0.0784141, 0, 0.0665399, 0)
-ui_ToggleBtn_25.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_ToggleBtn_25.Visible = true
-ui_ToggleBtn_25.ZIndex = 1
-ui_ToggleBtn_25.ClipsDescendants = false
-ui_ToggleBtn_25.LayoutOrder = 0
-ui_ToggleBtn_25.Text = "فتح / اغلاق"
-ui_ToggleBtn_25.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_ToggleBtn_25.TextSize = 14
-ui_ToggleBtn_25.TextScaled = false
-ui_ToggleBtn_25.TextWrapped = false
-ui_ToggleBtn_25.TextXAlignment = Enum.TextXAlignment.Center
-ui_ToggleBtn_25.TextYAlignment = Enum.TextYAlignment.Center
-ui_ToggleBtn_25.RichText = false
-ui_ToggleBtn_25.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_ToggleBtn_25.TextTransparency = 0
-ui_ToggleBtn_25.AutoButtonColor = true
-ui_ToggleBtn_25.Parent = ui_MainFrame_2
+local ui_ToggleBtn_22 = Instance.new("TextButton")
+ui_ToggleBtn_22.Name = "ToggleBtn"
+ui_ToggleBtn_22.AnchorPoint = Vector2.new(0, 0)
+ui_ToggleBtn_22.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+ui_ToggleBtn_22.BackgroundTransparency = 0
+ui_ToggleBtn_22.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_ToggleBtn_22.BorderSizePixel = 0
+ui_ToggleBtn_22.Position = UDim2.new(0.912775, 0, 0.013308, 0)
+ui_ToggleBtn_22.Rotation = 0
+ui_ToggleBtn_22.Size = UDim2.new(0.0784141, 0, 0.0665399, 0)
+ui_ToggleBtn_22.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_ToggleBtn_22.Visible = true
+ui_ToggleBtn_22.ZIndex = 1
+ui_ToggleBtn_22.ClipsDescendants = false
+ui_ToggleBtn_22.LayoutOrder = 0
+ui_ToggleBtn_22.Text = "فتح / اغلاق"
+ui_ToggleBtn_22.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_ToggleBtn_22.TextSize = 14
+ui_ToggleBtn_22.TextScaled = false
+ui_ToggleBtn_22.TextWrapped = false
+ui_ToggleBtn_22.TextXAlignment = Enum.TextXAlignment.Center
+ui_ToggleBtn_22.TextYAlignment = Enum.TextYAlignment.Center
+ui_ToggleBtn_22.RichText = false
+ui_ToggleBtn_22.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_ToggleBtn_22.TextTransparency = 0
+ui_ToggleBtn_22.AutoButtonColor = true
+ui_ToggleBtn_22.Parent = ui_MainFrame_2
 
 -- إنشاء: UICorner (UICorner)
-local ui_UICorner_26 = Instance.new("UICorner")
-ui_UICorner_26.Name = "UICorner"
-ui_UICorner_26.CornerRadius = UDim.new(0, 4)
-ui_UICorner_26.Parent = ui_ToggleBtn_25
+local ui_UICorner_23 = Instance.new("UICorner")
+ui_UICorner_23.Name = "UICorner"
+ui_UICorner_23.CornerRadius = UDim.new(0, 4)
+ui_UICorner_23.Parent = ui_ToggleBtn_22
 
 --// ==========================================
 --// البرمجات المدمجة التي كانت داخل الواجهة
@@ -659,23 +582,7 @@ ui_UICorner_26.Parent = ui_ToggleBtn_25
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_SeaHunterGui_1, Name = "LocalScript"}, {__index = ui_SeaHunterGui_1})
-	local RunService = game:GetService("RunService")
-	
-	while true do
-		local enemiesFolder = workspace:FindFirstChild("Enemies")
-		if enemiesFolder then
-			for _, item in ipairs(enemiesFolder:GetChildren()) do
-				item:Destroy()
-			end
-		end
-		task.wait(0.1)
-	end
-end)
-
--- تشغيل برمجة: LocalScript
-task.spawn(function()
-	local script = setmetatable({Parent = ui_TextButton_14, Name = "LocalScript"}, {__index = ui_TextButton_14})
+	local script = setmetatable({Parent = ui_TextButton_10, Name = "LocalScript"}, {__index = ui_TextButton_10})
 	local Players = game:GetService("Players")
 	local UserInputService = game:GetService("UserInputService")
 	local RunService = game:GetService("RunService")
@@ -801,7 +708,7 @@ end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_RocksBtn_18, Name = "LocalScript"}, {__index = ui_RocksBtn_18})
+	local script = setmetatable({Parent = ui_RocksBtn_14, Name = "LocalScript"}, {__index = ui_RocksBtn_14})
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 	local button = script.Parent
 	
@@ -815,7 +722,7 @@ end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_MoveBtn_19, Name = "LocalScript"}, {__index = ui_MoveBtn_19})
+	local script = setmetatable({Parent = ui_MoveBtn_15, Name = "LocalScript"}, {__index = ui_MoveBtn_15})
 	local Players = game:GetService("Players")
 	local RunService = game:GetService("RunService")
 	
@@ -843,7 +750,28 @@ end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_SkyStuts_21, Name = "LocalScript"}, {__index = ui_SkyStuts_21})
+	local script = setmetatable({Parent = ui_SeaEnemys_16, Name = "LocalScript"}, {__index = ui_SeaEnemys_16})
+	local RunService = game:GetService("RunService")
+	local folderNames = { "Enemies", "SeaBeasts" }
+	
+	task.spawn(function()
+		while true do
+			for _, folderName in ipairs(folderNames) do
+				local targetFolder = workspace:FindFirstChild(folderName)
+				if targetFolder then
+					for _, item in ipairs(targetFolder:GetChildren()) do
+						item:Destroy()
+					end
+				end
+			end
+			task.wait(0.01)
+		end
+	end)
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_SkyStuts_17, Name = "LocalScript"}, {__index = ui_SkyStuts_17})
 	local Lighting = game:GetService("Lighting")
 	local RunService = game:GetService("RunService")
 	local label = script.Parent
@@ -861,7 +789,7 @@ end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_MoonStuts_22, Name = "LocalScript"}, {__index = ui_MoonStuts_22})
+	local script = setmetatable({Parent = ui_MoonStuts_18, Name = "LocalScript"}, {__index = ui_MoonStuts_18})
 	local Lighting = game:GetService("Lighting")
 	local label = script.Parent
 	
@@ -963,7 +891,7 @@ end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_Clock_23, Name = "LocalScript"}, {__index = ui_Clock_23})
+	local script = setmetatable({Parent = ui_Clock_19, Name = "LocalScript"}, {__index = ui_Clock_19})
 	local Lighting = game:GetService("Lighting")
 	local label = script.Parent
 	
@@ -1001,7 +929,7 @@ end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_AnchorBtn_24, Name = "LocalScript"}, {__index = ui_AnchorBtn_24})
+	local script = setmetatable({Parent = ui_AnchorBtn_20, Name = "LocalScript"}, {__index = ui_AnchorBtn_20})
 	local button = script.Parent
 	local Players = game:GetService("Players")
 	local RunService = game:GetService("RunService")
@@ -1138,7 +1066,7 @@ end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_ToggleBtn_25, Name = "LocalScript"}, {__index = ui_ToggleBtn_25})
+	local script = setmetatable({Parent = ui_ToggleBtn_22, Name = "LocalScript"}, {__index = ui_ToggleBtn_22})
 	local button = script.Parent
 	local frame = button.Parent:FindFirstChild("ScriptFrame")
 	
@@ -1153,7 +1081,7 @@ task.spawn(function()
 	end
 	
 	-- ضبط الحالة الابتدائية (اختياري)
-	frame.Visible = false
+	frame.Visible = true
 	
 	button.MouseButton1Click:Connect(function()
 		frame.Visible = not frame.Visible
