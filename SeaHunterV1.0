@@ -621,7 +621,7 @@ ui_ErrorLabel_26.Position = UDim2.new(0.0431419, 0, 0.731915, 0)
 ui_ErrorLabel_26.Rotation = 0
 ui_ErrorLabel_26.Size = UDim2.new(0.465499, 0, 0.093617, 0)
 ui_ErrorLabel_26.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_ErrorLabel_26.Visible = true
+ui_ErrorLabel_26.Visible = false
 ui_ErrorLabel_26.ZIndex = 1
 ui_ErrorLabel_26.ClipsDescendants = false
 ui_ErrorLabel_26.LayoutOrder = 0
@@ -705,6 +705,80 @@ task.spawn(function()
 	local isSailing = false
 	local sessionCounter = 0
 	local seatLockConn = nil
+	local activeBoat = nil
+	local expiredBoats = {} -- [boatModel] = true بعد موت اللاعب
+	
+	local function showError(msg)
+		if errorLabel then
+			errorLabel.Text = msg
+			errorLabel.Visible = true
+		end
+	end
+	
+	local function clearError()
+		if errorLabel then
+			errorLabel.Visible = false
+		end
+	end
+	
+	local function clearExpiredBoats()
+		table.clear(expiredBoats)
+		clearError()
+	end
+	
+	-- مراقبة ظهور قارب جديد يخص اللاعب داخل Workspace.Boats
+	local function bindBoatModel(boatModel)
+		if not boatModel:IsA("Model") then
+			return
+		end
+	
+		local function checkOwner()
+			local ownerObj = boatModel:FindFirstChild("Owner")
+			if ownerObj and ownerObj:IsA("ObjectValue") and ownerObj.Value == player then
+				clearExpiredBoats()
+			end
+		end
+	
+		checkOwner()
+	
+		boatModel.ChildAdded:Connect(function(child)
+			if child.Name == "Owner" and child:IsA("ObjectValue") then
+				checkOwner()
+				child:GetPropertyChangedSignal("Value"):Connect(checkOwner)
+			end
+		end)
+	
+		local existingOwner = boatModel:FindFirstChild("Owner")
+		if existingOwner and existingOwner:IsA("ObjectValue") then
+			existingOwner:GetPropertyChangedSignal("Value"):Connect(checkOwner)
+		end
+	end
+	
+	local function hookBoatsFolder(boatsFolder)
+		if not boatsFolder then
+			return
+		end
+	
+		for _, child in ipairs(boatsFolder:GetChildren()) do
+			bindBoatModel(child)
+		end
+	
+		boatsFolder.ChildAdded:Connect(function(child)
+			task.defer(function()
+				bindBoatModel(child)
+			end)
+		end)
+	end
+	
+	local existingBoatsFolder = Workspace:FindFirstChild("Boats")
+	if existingBoatsFolder then
+		hookBoatsFolder(existingBoatsFolder)
+	end
+	Workspace.ChildAdded:Connect(function(child)
+		if child.Name == "Boats" then
+			hookBoatsFolder(child)
+		end
+	end)
 	
 	local function getCharParts()
 		local char = player.Character or player.CharacterAdded:Wait()
@@ -763,21 +837,33 @@ task.spawn(function()
 		return true
 	end
 	
+	-- إرجاع (boat, status): status = "ok" | "no_boat" | "need_new_boat"
 	local function getOwnedBoat()
 		local boatsFolder = Workspace:FindFirstChild("Boats")
 		if not boatsFolder then
-			return nil
+			return nil, "no_boat"
 		end
+	
+		local foundExpired = nil
 	
 		for _, boatModel in ipairs(boatsFolder:GetChildren()) do
 			if boatModel:IsA("Model") then
 				local ownerObj = boatModel:FindFirstChild("Owner")
 				if ownerObj and ownerObj:IsA("ObjectValue") and ownerObj.Value == player then
-					return boatModel
+					if expiredBoats[boatModel] then
+						foundExpired = boatModel
+					else
+						return boatModel, "ok"
+					end
 				end
 			end
 		end
-		return nil
+	
+		if foundExpired then
+			return nil, "need_new_boat"
+		end
+	
+		return nil, "no_boat"
 	end
 	
 	local function getVehicleSeat(boatModel)
@@ -796,6 +882,10 @@ task.spawn(function()
 		end
 	
 		local _, hum, hrp = getCharParts()
+		if hum.Health <= 0 then
+			return
+		end
+	
 		if seat.Occupant ~= hum then
 			hrp.CFrame = seat.CFrame * CFrame.new(0, 2.2, 0)
 			seat:Sit(hum)
@@ -808,7 +898,7 @@ task.spawn(function()
 			local char = player.Character
 			local h = char and char:FindFirstChildOfClass("Humanoid")
 			local r = char and char:FindFirstChild("HumanoidRootPart")
-			if h and r and seat and seat.Parent then
+			if h and r and h.Health > 0 and seat and seat.Parent then
 				h.JumpPower = 0
 				h.JumpHeight = 0
 				h:SetStateEnabled(Enum.HumanoidStateType.Jumping, false)
@@ -983,37 +1073,57 @@ task.spawn(function()
 		return false
 	end
 	
-	local function stopRun()
+	local function stopRun(markActiveBoatExpired)
+		if markActiveBoatExpired and activeBoat then
+			expiredBoats[activeBoat] = true
+		end
 		isSailing = false
 		sessionCounter += 1
+		activeBoat = nil
 		unlockSeat()
 	end
 	
-	local function runSailFlow(modeType)
-		if errorLabel then
-			errorLabel.Visible = false
-		end
+	-- مراقبة موت اللاعب لفك القفل وتعليم القارب الحالي كمنتهي بعد الموت
+	local function hookCharacterDeath(char)
+		local hum = char:WaitForChild("Humanoid")
+		hum.Died:Connect(function()
+			if isSailing then
+				stopRun(true)
+				showError("الرجاء شراء قارب جديد")
+			elseif activeBoat then
+				expiredBoats[activeBoat] = true
+				activeBoat = nil
+			end
+		end)
+	end
 	
-		local boat = getOwnedBoat()
+	if player.Character then
+		hookCharacterDeath(player.Character)
+	end
+	player.CharacterAdded:Connect(hookCharacterDeath)
+	
+	local function runSailFlow(modeType)
+		clearError()
+	
+		local boat, status = getOwnedBoat()
 		if not boat then
-			if errorLabel then
-				errorLabel.Text = "لا يوجد قارب للاعب الرجاء شراء قارب"
-				errorLabel.Visible = true
+			if status == "need_new_boat" then
+				showError("الرجاء شراء قارب جديد")
+			else
+				showError("لا يوجد قارب للاعب الرجاء شراء قارب")
 			end
 			return
 		end
 	
 		local seat = getVehicleSeat(boat)
 		if not seat then
-			if errorLabel then
-				errorLabel.Text = "لم يتم العثور على الكرسي في القارب"
-				errorLabel.Visible = true
-			end
+			showError("لم يتم العثور على الكرسي في القارب")
 			return
 		end
 	
 		isSailing = true
 		sessionCounter += 1
+		activeBoat = boat
 		local currentSession = sessionCounter
 	
 		task.spawn(function()
@@ -1032,6 +1142,10 @@ task.spawn(function()
 			task.wait(0.25)
 	
 			local _, hum = getCharParts()
+			if hum.Health <= 0 then
+				return
+			end
+	
 			if hum.SeatPart ~= seat then
 				lockSeat(seat)
 				task.wait(0.25)
@@ -1078,7 +1192,7 @@ task.spawn(function()
 	
 	sailBtn.MouseButton1Click:Connect(function()
 		if isSailing then
-			stopRun()
+			stopRun(false)
 			return
 		end
 	
@@ -1096,16 +1210,37 @@ task.spawn(function()
 	
 	local player = Players.LocalPlayer
 	local playerGui = player:WaitForChild("PlayerGui")
-	
 	local sailTypeBtn = script.Parent
-	-- ابحث عن الفريم الذي يضم MirageBtn و KitsuneBtn
-	local typeFrame = sailTypeBtn.Parent:FindFirstChild("TypeFrame")
-		or (sailTypeBtn:FindFirstAncestorWhichIsA("GuiObject") and sailTypeBtn:FindFirstAncestorWhichIsA("GuiObject"):FindFirstChild("TypeFrame"))
 	
-	local mirageBtn = typeFrame and typeFrame:FindFirstChild("MirageBtn", true)
-	local kitsuneBtn = typeFrame and typeFrame:FindFirstChild("KitsuneBtn", true)
+	local function findFirstDescendantByName(root, name)
+		for _, obj in ipairs(root:GetDescendants()) do
+			if obj.Name == name then
+				return obj
+			end
+		end
+		return nil
+	end
 	
-	-- قيمة افتراضية مشتركة بين السكربتين
+	local mirageBtn = findFirstDescendantByName(playerGui, "MirageBtn")
+	local kitsuneBtn = findFirstDescendantByName(playerGui, "KitsuneBtn")
+	
+	-- تحديد الفريم تلقائياً عبر الزرين MirageBtn أو KitsuneBtn، أو بالاسم الشائع
+	local typeFrame = (mirageBtn and mirageBtn:FindFirstAncestorOfClass("Frame"))
+		or (kitsuneBtn and kitsuneBtn:FindFirstAncestorOfClass("Frame"))
+		or findFirstDescendantByName(playerGui, "TypeFrame")
+		or findFirstDescendantByName(playerGui, "SailTypeFrame")
+	
+	if not mirageBtn then
+		warn("[SailTypeBtn] لم يتم العثور على زر MirageBtn في PlayerGui")
+	end
+	if not kitsuneBtn then
+		warn("[SailTypeBtn] لم يتم العثور على زر KitsuneBtn في PlayerGui")
+	end
+	if not typeFrame then
+		warn("[SailTypeBtn] لم يتم العثور على الفريم الذي يحتوي على الأزرار في PlayerGui")
+	end
+	
+	-- قيمة افتراضية مشتركة مع سكربت sailBtn
 	if playerGui:GetAttribute("SelectedSailType") == nil then
 		playerGui:SetAttribute("SelectedSailType", "Mirage")
 	end
@@ -1114,28 +1249,42 @@ task.spawn(function()
 		typeFrame.Visible = false
 	end
 	
-	sailTypeBtn.MouseButton1Click:Connect(function()
+	local function toggleTypeFrame()
+		if not typeFrame then
+			typeFrame = (mirageBtn and mirageBtn:FindFirstAncestorOfClass("Frame"))
+				or (kitsuneBtn and kitsuneBtn:FindFirstAncestorOfClass("Frame"))
+				or findFirstDescendantByName(playerGui, "TypeFrame")
+		end
 		if typeFrame then
 			typeFrame.Visible = not typeFrame.Visible
 		end
-	end)
+	end
 	
-	if mirageBtn then
-		mirageBtn.MouseButton1Click:Connect(function()
+	if sailTypeBtn:IsA("GuiButton") then
+		sailTypeBtn.Activated:Connect(toggleTypeFrame)
+		sailTypeBtn.MouseButton1Click:Connect(toggleTypeFrame)
+	end
+	
+	if mirageBtn and mirageBtn:IsA("GuiButton") then
+		local function selectMirage()
 			playerGui:SetAttribute("SelectedSailType", "Mirage")
 			if typeFrame then
 				typeFrame.Visible = false
 			end
-		end)
+		end
+		mirageBtn.Activated:Connect(selectMirage)
+		mirageBtn.MouseButton1Click:Connect(selectMirage)
 	end
 	
-	if kitsuneBtn then
-		kitsuneBtn.MouseButton1Click:Connect(function()
+	if kitsuneBtn and kitsuneBtn:IsA("GuiButton") then
+		local function selectKitsune()
 			playerGui:SetAttribute("SelectedSailType", "Kitsune")
 			if typeFrame then
 				typeFrame.Visible = false
 			end
-		end)
+		end
+		kitsuneBtn.Activated:Connect(selectKitsune)
+		kitsuneBtn.MouseButton1Click:Connect(selectKitsune)
 	end
 end)
 
