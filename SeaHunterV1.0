@@ -541,7 +541,7 @@ ui_MoonStuts_22.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ui_MoonStuts_22.BackgroundTransparency = 1
 ui_MoonStuts_22.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ui_MoonStuts_22.BorderSizePixel = 0
-ui_MoonStuts_22.Position = UDim2.new(0.770455, 0, 0.846808, 0)
+ui_MoonStuts_22.Position = UDim2.new(0.459091, 0, 0.910638, 0)
 ui_MoonStuts_22.Rotation = 0
 ui_MoonStuts_22.Size = UDim2.new(0.213636, 0, 0.0638298, 0)
 ui_MoonStuts_22.SizeConstraint = Enum.SizeConstraint.RelativeXY
@@ -561,40 +561,97 @@ ui_MoonStuts_22.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWei
 ui_MoonStuts_22.TextTransparency = 0
 ui_MoonStuts_22.Parent = ui_ScriptFrame_3
 
+-- إنشاء: Clock (TextLabel)
+local ui_Clock_23 = Instance.new("TextLabel")
+ui_Clock_23.Name = "Clock"
+ui_Clock_23.AnchorPoint = Vector2.new(0, 0)
+ui_Clock_23.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_Clock_23.BackgroundTransparency = 1
+ui_Clock_23.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Clock_23.BorderSizePixel = 0
+ui_Clock_23.Position = UDim2.new(0.145455, 0, 0.910638, 0)
+ui_Clock_23.Rotation = 0
+ui_Clock_23.Size = UDim2.new(0.213636, 0, 0.0638298, 0)
+ui_Clock_23.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Clock_23.Visible = true
+ui_Clock_23.ZIndex = 1
+ui_Clock_23.ClipsDescendants = false
+ui_Clock_23.LayoutOrder = 0
+ui_Clock_23.Text = "الساعة:"
+ui_Clock_23.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_Clock_23.TextSize = 14
+ui_Clock_23.TextScaled = false
+ui_Clock_23.TextWrapped = false
+ui_Clock_23.TextXAlignment = Enum.TextXAlignment.Right
+ui_Clock_23.TextYAlignment = Enum.TextYAlignment.Center
+ui_Clock_23.RichText = false
+ui_Clock_23.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_Clock_23.TextTransparency = 0
+ui_Clock_23.Parent = ui_ScriptFrame_3
+
+-- إنشاء: AnchorBtn (TextButton)
+local ui_AnchorBtn_24 = Instance.new("TextButton")
+ui_AnchorBtn_24.Name = "AnchorBtn"
+ui_AnchorBtn_24.AnchorPoint = Vector2.new(0, 0)
+ui_AnchorBtn_24.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_AnchorBtn_24.BackgroundTransparency = 0
+ui_AnchorBtn_24.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_AnchorBtn_24.BorderSizePixel = 0
+ui_AnchorBtn_24.Position = UDim2.new(0.756818, 0, 0.604255, 0)
+ui_AnchorBtn_24.Rotation = 0
+ui_AnchorBtn_24.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_AnchorBtn_24.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_AnchorBtn_24.Visible = true
+ui_AnchorBtn_24.ZIndex = 1
+ui_AnchorBtn_24.ClipsDescendants = false
+ui_AnchorBtn_24.LayoutOrder = 0
+ui_AnchorBtn_24.Text = "التثبيت بالكرسي⛓"
+ui_AnchorBtn_24.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_AnchorBtn_24.TextSize = 14
+ui_AnchorBtn_24.TextScaled = false
+ui_AnchorBtn_24.TextWrapped = false
+ui_AnchorBtn_24.TextXAlignment = Enum.TextXAlignment.Center
+ui_AnchorBtn_24.TextYAlignment = Enum.TextYAlignment.Center
+ui_AnchorBtn_24.RichText = false
+ui_AnchorBtn_24.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_AnchorBtn_24.TextTransparency = 0
+ui_AnchorBtn_24.AutoButtonColor = true
+ui_AnchorBtn_24.Parent = ui_ScriptFrame_3
+
 -- إنشاء: ToggleBtn (TextButton)
-local ui_ToggleBtn_23 = Instance.new("TextButton")
-ui_ToggleBtn_23.Name = "ToggleBtn"
-ui_ToggleBtn_23.AnchorPoint = Vector2.new(0, 0)
-ui_ToggleBtn_23.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
-ui_ToggleBtn_23.BackgroundTransparency = 0
-ui_ToggleBtn_23.BorderColor3 = Color3.fromRGB(0, 0, 0)
-ui_ToggleBtn_23.BorderSizePixel = 0
-ui_ToggleBtn_23.Position = UDim2.new(0.912775, 0, 0.013308, 0)
-ui_ToggleBtn_23.Rotation = 0
-ui_ToggleBtn_23.Size = UDim2.new(0.0784141, 0, 0.0665399, 0)
-ui_ToggleBtn_23.SizeConstraint = Enum.SizeConstraint.RelativeXY
-ui_ToggleBtn_23.Visible = true
-ui_ToggleBtn_23.ZIndex = 1
-ui_ToggleBtn_23.ClipsDescendants = false
-ui_ToggleBtn_23.LayoutOrder = 0
-ui_ToggleBtn_23.Text = "فتح / اغلاق"
-ui_ToggleBtn_23.TextColor3 = Color3.fromRGB(255, 255, 255)
-ui_ToggleBtn_23.TextSize = 14
-ui_ToggleBtn_23.TextScaled = false
-ui_ToggleBtn_23.TextWrapped = false
-ui_ToggleBtn_23.TextXAlignment = Enum.TextXAlignment.Center
-ui_ToggleBtn_23.TextYAlignment = Enum.TextYAlignment.Center
-ui_ToggleBtn_23.RichText = false
-ui_ToggleBtn_23.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
-ui_ToggleBtn_23.TextTransparency = 0
-ui_ToggleBtn_23.AutoButtonColor = true
-ui_ToggleBtn_23.Parent = ui_MainFrame_2
+local ui_ToggleBtn_25 = Instance.new("TextButton")
+ui_ToggleBtn_25.Name = "ToggleBtn"
+ui_ToggleBtn_25.AnchorPoint = Vector2.new(0, 0)
+ui_ToggleBtn_25.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+ui_ToggleBtn_25.BackgroundTransparency = 0
+ui_ToggleBtn_25.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_ToggleBtn_25.BorderSizePixel = 0
+ui_ToggleBtn_25.Position = UDim2.new(0.912775, 0, 0.013308, 0)
+ui_ToggleBtn_25.Rotation = 0
+ui_ToggleBtn_25.Size = UDim2.new(0.0784141, 0, 0.0665399, 0)
+ui_ToggleBtn_25.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_ToggleBtn_25.Visible = true
+ui_ToggleBtn_25.ZIndex = 1
+ui_ToggleBtn_25.ClipsDescendants = false
+ui_ToggleBtn_25.LayoutOrder = 0
+ui_ToggleBtn_25.Text = "فتح / اغلاق"
+ui_ToggleBtn_25.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_ToggleBtn_25.TextSize = 14
+ui_ToggleBtn_25.TextScaled = false
+ui_ToggleBtn_25.TextWrapped = false
+ui_ToggleBtn_25.TextXAlignment = Enum.TextXAlignment.Center
+ui_ToggleBtn_25.TextYAlignment = Enum.TextYAlignment.Center
+ui_ToggleBtn_25.RichText = false
+ui_ToggleBtn_25.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_ToggleBtn_25.TextTransparency = 0
+ui_ToggleBtn_25.AutoButtonColor = true
+ui_ToggleBtn_25.Parent = ui_MainFrame_2
 
 -- إنشاء: UICorner (UICorner)
-local ui_UICorner_24 = Instance.new("UICorner")
-ui_UICorner_24.Name = "UICorner"
-ui_UICorner_24.CornerRadius = UDim.new(0, 4)
-ui_UICorner_24.Parent = ui_ToggleBtn_23
+local ui_UICorner_26 = Instance.new("UICorner")
+ui_UICorner_26.Name = "UICorner"
+ui_UICorner_26.CornerRadius = UDim.new(0, 4)
+ui_UICorner_26.Parent = ui_ToggleBtn_25
 
 --// ==========================================
 --// البرمجات المدمجة التي كانت داخل الواجهة
@@ -906,7 +963,182 @@ end)
 
 -- تشغيل برمجة: LocalScript
 task.spawn(function()
-	local script = setmetatable({Parent = ui_ToggleBtn_23, Name = "LocalScript"}, {__index = ui_ToggleBtn_23})
+	local script = setmetatable({Parent = ui_Clock_23, Name = "LocalScript"}, {__index = ui_Clock_23})
+	local Lighting = game:GetService("Lighting")
+	local label = script.Parent
+	
+	if not label:IsA("TextLabel") then
+		warn("يجب وضع السكربت داخل TextLabel")
+		return
+	end
+	
+	local function isNight(clockTime)
+		return clockTime >= 18 or clockTime < 6
+	end
+	
+	local function formatClockTimeHMS(clockTime)
+		local normalized = clockTime % 24
+		local totalSeconds = math.floor(normalized * 3600)
+	
+		local hours = math.floor(totalSeconds / 3600) % 24
+		local minutes = math.floor((totalSeconds % 3600) / 60)
+		local seconds = totalSeconds % 60
+	
+		return string.format("%02d:%02d:%02d", hours, minutes, seconds)
+	end
+	
+	local function updateClockLabel()
+		local clockTime = Lighting.ClockTime
+		local formatted = formatClockTimeHMS(clockTime)
+		local period = isNight(clockTime) and "ليل" or "نهار"
+	
+		label.Text = string.format("الساعة: %s (%s)", formatted, period)
+	end
+	
+	Lighting:GetPropertyChangedSignal("ClockTime"):Connect(updateClockLabel)
+	updateClockLabel()
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_AnchorBtn_24, Name = "LocalScript"}, {__index = ui_AnchorBtn_24})
+	local button = script.Parent
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	
+	local player = Players.LocalPlayer
+	
+	local isLocked = false
+	local lockedSeat = nil
+	local heartbeatConn = nil
+	local savedJumpPower = 50
+	
+	local function getRootPart(character)
+		return character and character:FindFirstChild("HumanoidRootPart")
+	end
+	
+	local function getHumanoid(character)
+		return character and character:FindFirstChildOfClass("Humanoid")
+	end
+	
+	local function clearSeatWeld(seat, rootPart)
+		if not seat or not rootPart then return end
+		for _, child in ipairs(seat:GetChildren()) do
+			if child:IsA("Weld") and child.Name == "LockedSeatWeld" and child.Part1 == rootPart then
+				child:Destroy()
+			end
+		end
+	end
+	
+	local function keepSeated(seat, humanoid, rootPart)
+		if not seat or not seat.Parent or not humanoid or not rootPart then return end
+	
+		-- منع القفز
+		humanoid.UseJumpPower = true
+		humanoid.JumpPower = 0
+		humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, false)
+	
+		-- إرجاع الجلوس إذا تم إخراجه بأي مؤثر أو دفع
+		if humanoid.SeatPart ~= seat then
+			seat:Sit(humanoid)
+		end
+	
+		-- تثبيت اللاعب على الكرسي عبر Weld لمنع الإزاحة أو الطرد الفيزيائي
+		local hasWeld = false
+		for _, child in ipairs(seat:GetChildren()) do
+			if child:IsA("Weld") and child.Name == "LockedSeatWeld" and child.Part1 == rootPart then
+				hasWeld = true
+				break
+			end
+		end
+	
+		if not hasWeld then
+			local weld = Instance.new("Weld")
+			weld.Name = "LockedSeatWeld"
+			weld.Part0 = seat
+			weld.Part1 = rootPart
+			weld.C0 = CFrame.new(0, (seat.Size.Y / 2) + (rootPart.Size.Y / 2) - 0.1, 0)
+			weld.Parent = seat
+		end
+	end
+	
+	local function unlockSeat()
+		isLocked = false
+		button.Text = "تثبيت على الكرسي"
+	
+		if heartbeatConn then
+			heartbeatConn:Disconnect()
+			heartbeatConn = nil
+		end
+	
+		local character = player.Character
+		local humanoid = getHumanoid(character)
+		local rootPart = getRootPart(character)
+	
+		if humanoid then
+			humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, true)
+			humanoid.JumpPower = savedJumpPower
+		end
+	
+		clearSeatWeld(lockedSeat, rootPart)
+		lockedSeat = nil
+	end
+	
+	local function lockSeat()
+		local character = player.Character
+		local humanoid = getHumanoid(character)
+		local rootPart = getRootPart(character)
+		if not humanoid or not rootPart then return end
+	
+		local currentSeat = humanoid.SeatPart
+		if not currentSeat or not (currentSeat:IsA("Seat") or currentSeat:IsA("VehicleSeat")) then
+			return
+		end
+	
+		isLocked = true
+		lockedSeat = currentSeat
+		savedJumpPower = humanoid.JumpPower > 0 and humanoid.JumpPower or 50
+		button.Text = "فك التثبيت"
+	
+		keepSeated(lockedSeat, humanoid, rootPart)
+	
+		heartbeatConn = RunService.Heartbeat:Connect(function()
+			local char = player.Character
+			local hum = getHumanoid(char)
+			local root = getRootPart(char)
+	
+			if not char or not char.Parent or not hum or not root or hum.Health <= 0 then
+				unlockSeat()
+				return
+			end
+	
+			if not lockedSeat or not lockedSeat.Parent then
+				unlockSeat()
+				return
+			end
+	
+			keepSeated(lockedSeat, hum, root)
+		end)
+	end
+	
+	button.Text = "تثبيت على الكرسي"
+	
+	button.MouseButton1Click:Connect(function()
+		if isLocked then
+			unlockSeat()
+		else
+			lockSeat()
+		end
+	end)
+	
+	player.CharacterAdded:Connect(function()
+		unlockSeat()
+	end)
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_ToggleBtn_25, Name = "LocalScript"}, {__index = ui_ToggleBtn_25})
 	local button = script.Parent
 	local frame = button.Parent:FindFirstChild("ScriptFrame")
 	
