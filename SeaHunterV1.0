@@ -1092,7 +1092,7 @@ task.spawn(function()
 	
 	-- ربط مباشر بـ ScreenGui باسم MirageGui داخل PlayerGui
 	local playerGui = player:WaitForChild("PlayerGui")
-	local mirageGui: ScreenGui = playerGui:WaitForChild("MirageGui") :: ScreenGui
+	local mirageGui: ScreenGui = playerGui:WaitForChild("SeaHunterGui") :: ScreenGui
 	local errorLabel: TextLabel = mirageGui:WaitForChild("ErrorLabel", true) :: TextLabel
 	
 	local buttonsFolder: Instance = mirageGui -- يبحث تلقائياً داخل MirageGui حتى لو كانت الأزرار داخل Frame
