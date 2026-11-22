@@ -1,352 +1,1461 @@
+--// تم توليد هذا السكربت تلقائياً بواسطة محول الواجهات الذكي
 local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-
 local player = Players.LocalPlayer
-local toggleButton = script.Parent -- الزر الرئيسي للتحكم
-
--- ربط مباشر بـ ScreenGui باسم MirageGui والمسار الدقيق لـ ErrorLabel
 local playerGui = player:WaitForChild("PlayerGui")
-local mirageGui: ScreenGui = playerGui:WaitForChild("MirageGui") :: ScreenGui
-local mainFrame = mirageGui:WaitForChild("MainFrame")
-local scriptFrame = mainFrame:WaitForChild("ScriptFrame")
-local errorLabel: TextLabel = scriptFrame:WaitForChild("ErrorLabel") :: TextLabel
 
-local buttonsFolder: Instance = mirageGui -- يبحث تلقائياً داخل MirageGui حتى لو كانت الأزرار داخل Frame
-local targetButtonNames = { "AnchorBtn", "MoveBtn", "SeaEnemys", "RocksBtn" }
+-- إنشاء: MirageGui (ScreenGui)
+local ui_MirageGui_1 = Instance.new("ScreenGui")
+ui_MirageGui_1.Name = "MirageGui"
+ui_MirageGui_1.Enabled = true
+ui_MirageGui_1.ResetOnSpawn = false
+ui_MirageGui_1.IgnoreGuiInset = true
+ui_MirageGui_1.DisplayOrder = 1000
+ui_MirageGui_1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ui_MirageGui_1.Parent = playerGui
 
-local boatsFolder = workspace:WaitForChild("Boats")
-local mapFolder = workspace:WaitForChild("Map")
+-- إنشاء: MainFrame (Frame)
+local ui_MainFrame_2 = Instance.new("Frame")
+ui_MainFrame_2.Name = "MainFrame"
+ui_MainFrame_2.AnchorPoint = Vector2.new(0, 0)
+ui_MainFrame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_MainFrame_2.BackgroundTransparency = 1
+ui_MainFrame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_MainFrame_2.BorderSizePixel = 0
+ui_MainFrame_2.Position = UDim2.new(0, 0, 0, 0)
+ui_MainFrame_2.Rotation = 0
+ui_MainFrame_2.Size = UDim2.new(1, 0, 1, 0)
+ui_MainFrame_2.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_MainFrame_2.Visible = true
+ui_MainFrame_2.ZIndex = 1
+ui_MainFrame_2.ClipsDescendants = false
+ui_MainFrame_2.LayoutOrder = 0
+ui_MainFrame_2.Parent = ui_MirageGui_1
 
-local TARGET_SPEED = 350
-local TWEEN_DURATION = 1.2 -- مدة التوين المخصص بالثواني
-local MIRAGE_TWEEN_DURATION = 2.0 -- مدة التوين لأعلى نقطة في MirageIsland
+-- إنشاء: ScriptFrame (Frame)
+local ui_ScriptFrame_3 = Instance.new("Frame")
+ui_ScriptFrame_3.Name = "ScriptFrame"
+ui_ScriptFrame_3.AnchorPoint = Vector2.new(0, 0)
+ui_ScriptFrame_3.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+ui_ScriptFrame_3.BackgroundTransparency = 0
+ui_ScriptFrame_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_ScriptFrame_3.BorderSizePixel = 0
+ui_ScriptFrame_3.Position = UDim2.new(0.305727, 0, 0.275665, 0)
+ui_ScriptFrame_3.Rotation = 0
+ui_ScriptFrame_3.Size = UDim2.new(0.387665, 0, 0.446768, 0)
+ui_ScriptFrame_3.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_ScriptFrame_3.Visible = true
+ui_ScriptFrame_3.ZIndex = 1
+ui_ScriptFrame_3.ClipsDescendants = false
+ui_ScriptFrame_3.LayoutOrder = 0
+ui_ScriptFrame_3.Parent = ui_MainFrame_2
 
-local isActive = false
-local activeConnection: RBXScriptConnection? = nil
-local mirageConnection: RBXScriptConnection? = nil
-local errorThread: thread? = nil
-local currentBoat: Model? = nil
-local handledMirages: { [Model]: boolean } = {}
+-- إنشاء: TopBar (Frame)
+local ui_TopBar_4 = Instance.new("Frame")
+ui_TopBar_4.Name = "TopBar"
+ui_TopBar_4.AnchorPoint = Vector2.new(0, 0)
+ui_TopBar_4.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+ui_TopBar_4.BackgroundTransparency = 0
+ui_TopBar_4.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_TopBar_4.BorderSizePixel = 0
+ui_TopBar_4.Position = UDim2.new(-0.000480097, 0, -0.000930332, 0)
+ui_TopBar_4.Rotation = 0
+ui_TopBar_4.Size = UDim2.new(1, 0, 0.106383, 0)
+ui_TopBar_4.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_TopBar_4.Visible = true
+ui_TopBar_4.ZIndex = 1
+ui_TopBar_4.ClipsDescendants = false
+ui_TopBar_4.LayoutOrder = 0
+ui_TopBar_4.Parent = ui_ScriptFrame_3
 
--- الضغط على زر واجهة محدد بالاسم داخل MirageGui
-local function clickGuiButtonByName(btnName: string)
-	local btn = buttonsFolder:FindFirstChild(btnName, true)
-	if btn and btn:IsA("GuiButton") then
-		if typeof(firesignal) == "function" then
-			firesignal(btn.MouseButton1Click)
-		else
-			btn.Activated:Fire()
+-- إنشاء: Title (TextLabel)
+local ui_Title_5 = Instance.new("TextLabel")
+ui_Title_5.Name = "Title"
+ui_Title_5.AnchorPoint = Vector2.new(0, 0)
+ui_Title_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_Title_5.BackgroundTransparency = 1
+ui_Title_5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Title_5.BorderSizePixel = 0
+ui_Title_5.Position = UDim2.new(0.0181818, 0, 0, 0)
+ui_Title_5.Rotation = 0
+ui_Title_5.Size = UDim2.new(0.472727, 0, 0.96, 0)
+ui_Title_5.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Title_5.Visible = true
+ui_Title_5.ZIndex = 1
+ui_Title_5.ClipsDescendants = false
+ui_Title_5.LayoutOrder = 0
+ui_Title_5.Text = "Sea Hunter - Blox Fruits"
+ui_Title_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_Title_5.TextSize = 14
+ui_Title_5.TextScaled = false
+ui_Title_5.TextWrapped = false
+ui_Title_5.TextXAlignment = Enum.TextXAlignment.Left
+ui_Title_5.TextYAlignment = Enum.TextYAlignment.Center
+ui_Title_5.RichText = false
+ui_Title_5.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ui_Title_5.TextTransparency = 0
+ui_Title_5.Parent = ui_TopBar_4
+
+-- إنشاء: Throttle (Frame)
+local ui_Throttle_6 = Instance.new("Frame")
+ui_Throttle_6.Name = "Throttle"
+ui_Throttle_6.AnchorPoint = Vector2.new(0, 0)
+ui_Throttle_6.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+ui_Throttle_6.BackgroundTransparency = 0
+ui_Throttle_6.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Throttle_6.BorderSizePixel = 0
+ui_Throttle_6.Position = UDim2.new(0.281818, 0, 0.251064, 0)
+ui_Throttle_6.Rotation = 0
+ui_Throttle_6.Size = UDim2.new(0.681818, 0, 0.0212766, 0)
+ui_Throttle_6.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Throttle_6.Visible = true
+ui_Throttle_6.ZIndex = 1
+ui_Throttle_6.ClipsDescendants = false
+ui_Throttle_6.LayoutOrder = 0
+ui_Throttle_6.Parent = ui_ScriptFrame_3
+
+-- إنشاء: TextButton (TextButton)
+local ui_TextButton_7 = Instance.new("TextButton")
+ui_TextButton_7.Name = "TextButton"
+ui_TextButton_7.AnchorPoint = Vector2.new(0, 0)
+ui_TextButton_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_TextButton_7.BackgroundTransparency = 1
+ui_TextButton_7.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_TextButton_7.BorderSizePixel = 0
+ui_TextButton_7.Position = UDim2.new(-0.03, 0, -2.6, 0)
+ui_TextButton_7.Rotation = 0
+ui_TextButton_7.Size = UDim2.new(0.1, 0, 6, 0)
+ui_TextButton_7.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_TextButton_7.Visible = true
+ui_TextButton_7.ZIndex = 1
+ui_TextButton_7.ClipsDescendants = false
+ui_TextButton_7.LayoutOrder = 0
+ui_TextButton_7.Text = "⛵"
+ui_TextButton_7.TextColor3 = Color3.fromRGB(0, 0, 0)
+ui_TextButton_7.TextSize = 14
+ui_TextButton_7.TextScaled = true
+ui_TextButton_7.TextWrapped = true
+ui_TextButton_7.TextXAlignment = Enum.TextXAlignment.Center
+ui_TextButton_7.TextYAlignment = Enum.TextYAlignment.Center
+ui_TextButton_7.RichText = false
+ui_TextButton_7.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ui_TextButton_7.TextTransparency = 0
+ui_TextButton_7.AutoButtonColor = true
+ui_TextButton_7.Parent = ui_Throttle_6
+
+-- إنشاء: Title (TextLabel)
+local ui_Title_8 = Instance.new("TextLabel")
+ui_Title_8.Name = "Title"
+ui_Title_8.AnchorPoint = Vector2.new(0, 0)
+ui_Title_8.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_Title_8.BackgroundTransparency = 1
+ui_Title_8.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Title_8.BorderSizePixel = 0
+ui_Title_8.Position = UDim2.new(0.151515, 0, 1, 0)
+ui_Title_8.Rotation = 0
+ui_Title_8.Size = UDim2.new(0.693333, 0, 4.8, 0)
+ui_Title_8.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Title_8.Visible = true
+ui_Title_8.ZIndex = 1
+ui_Title_8.ClipsDescendants = false
+ui_Title_8.LayoutOrder = 0
+ui_Title_8.Text = "السرعة"
+ui_Title_8.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_Title_8.TextSize = 14
+ui_Title_8.TextScaled = false
+ui_Title_8.TextWrapped = false
+ui_Title_8.TextXAlignment = Enum.TextXAlignment.Center
+ui_Title_8.TextYAlignment = Enum.TextYAlignment.Center
+ui_Title_8.RichText = false
+ui_Title_8.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_Title_8.TextTransparency = 0
+ui_Title_8.Parent = ui_Throttle_6
+
+-- إنشاء: TextLabel (TextLabel)
+local ui_TextLabel_9 = Instance.new("TextLabel")
+ui_TextLabel_9.Name = "TextLabel"
+ui_TextLabel_9.AnchorPoint = Vector2.new(0, 0)
+ui_TextLabel_9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_TextLabel_9.BackgroundTransparency = 1
+ui_TextLabel_9.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_TextLabel_9.BorderSizePixel = 0
+ui_TextLabel_9.Position = UDim2.new(0.424849, 0, 5.8, 0)
+ui_TextLabel_9.Rotation = 0
+ui_TextLabel_9.Size = UDim2.new(0.15, 0, 2.2, 0)
+ui_TextLabel_9.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_TextLabel_9.Visible = true
+ui_TextLabel_9.ZIndex = 1
+ui_TextLabel_9.ClipsDescendants = false
+ui_TextLabel_9.LayoutOrder = 0
+ui_TextLabel_9.Text = "--"
+ui_TextLabel_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_TextLabel_9.TextSize = 14
+ui_TextLabel_9.TextScaled = false
+ui_TextLabel_9.TextWrapped = false
+ui_TextLabel_9.TextXAlignment = Enum.TextXAlignment.Center
+ui_TextLabel_9.TextYAlignment = Enum.TextYAlignment.Center
+ui_TextLabel_9.RichText = false
+ui_TextLabel_9.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+ui_TextLabel_9.TextTransparency = 0
+ui_TextLabel_9.Parent = ui_Throttle_6
+
+-- إنشاء: Name1 (TextLabel)
+local ui_Name1_10 = Instance.new("TextLabel")
+ui_Name1_10.Name = "Name1"
+ui_Name1_10.AnchorPoint = Vector2.new(0, 0)
+ui_Name1_10.BackgroundColor3 = Color3.fromRGB(63, 63, 63)
+ui_Name1_10.BackgroundTransparency = 0
+ui_Name1_10.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Name1_10.BorderSizePixel = 0
+ui_Name1_10.Position = UDim2.new(0.261364, 0, 0.144681, 0)
+ui_Name1_10.Rotation = 0
+ui_Name1_10.Size = UDim2.new(0.722727, 0, 0.0680851, 0)
+ui_Name1_10.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Name1_10.Visible = true
+ui_Name1_10.ZIndex = 1
+ui_Name1_10.ClipsDescendants = false
+ui_Name1_10.LayoutOrder = 0
+ui_Name1_10.Text = "سرعة القارب"
+ui_Name1_10.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_Name1_10.TextSize = 14
+ui_Name1_10.TextScaled = false
+ui_Name1_10.TextWrapped = false
+ui_Name1_10.TextXAlignment = Enum.TextXAlignment.Center
+ui_Name1_10.TextYAlignment = Enum.TextYAlignment.Center
+ui_Name1_10.RichText = false
+ui_Name1_10.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_Name1_10.TextTransparency = 0
+ui_Name1_10.Parent = ui_ScriptFrame_3
+
+-- إنشاء: RocksBtn (TextButton)
+local ui_RocksBtn_11 = Instance.new("TextButton")
+ui_RocksBtn_11.Name = "RocksBtn"
+ui_RocksBtn_11.AnchorPoint = Vector2.new(0, 0)
+ui_RocksBtn_11.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_RocksBtn_11.BackgroundTransparency = 0
+ui_RocksBtn_11.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_RocksBtn_11.BorderSizePixel = 0
+ui_RocksBtn_11.Position = UDim2.new(0.509091, 0, 0.434043, 0)
+ui_RocksBtn_11.Rotation = 0
+ui_RocksBtn_11.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_RocksBtn_11.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_RocksBtn_11.Visible = true
+ui_RocksBtn_11.ZIndex = 1
+ui_RocksBtn_11.ClipsDescendants = false
+ui_RocksBtn_11.LayoutOrder = 0
+ui_RocksBtn_11.Text = "حذف الصخور🗻"
+ui_RocksBtn_11.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_RocksBtn_11.TextSize = 14
+ui_RocksBtn_11.TextScaled = false
+ui_RocksBtn_11.TextWrapped = false
+ui_RocksBtn_11.TextXAlignment = Enum.TextXAlignment.Center
+ui_RocksBtn_11.TextYAlignment = Enum.TextYAlignment.Center
+ui_RocksBtn_11.RichText = false
+ui_RocksBtn_11.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_RocksBtn_11.TextTransparency = 0
+ui_RocksBtn_11.AutoButtonColor = true
+ui_RocksBtn_11.Parent = ui_ScriptFrame_3
+
+-- إنشاء: MoveBtn (TextButton)
+local ui_MoveBtn_12 = Instance.new("TextButton")
+ui_MoveBtn_12.Name = "MoveBtn"
+ui_MoveBtn_12.AnchorPoint = Vector2.new(0, 0)
+ui_MoveBtn_12.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_MoveBtn_12.BackgroundTransparency = 0
+ui_MoveBtn_12.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_MoveBtn_12.BorderSizePixel = 0
+ui_MoveBtn_12.Position = UDim2.new(0.261364, 0, 0.434043, 0)
+ui_MoveBtn_12.Rotation = 0
+ui_MoveBtn_12.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_MoveBtn_12.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_MoveBtn_12.Visible = true
+ui_MoveBtn_12.ZIndex = 1
+ui_MoveBtn_12.ClipsDescendants = false
+ui_MoveBtn_12.LayoutOrder = 0
+ui_MoveBtn_12.Text = "التحرك للأمام"
+ui_MoveBtn_12.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_MoveBtn_12.TextSize = 14
+ui_MoveBtn_12.TextScaled = false
+ui_MoveBtn_12.TextWrapped = false
+ui_MoveBtn_12.TextXAlignment = Enum.TextXAlignment.Center
+ui_MoveBtn_12.TextYAlignment = Enum.TextYAlignment.Center
+ui_MoveBtn_12.RichText = false
+ui_MoveBtn_12.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_MoveBtn_12.TextTransparency = 0
+ui_MoveBtn_12.AutoButtonColor = true
+ui_MoveBtn_12.Parent = ui_ScriptFrame_3
+
+-- إنشاء: SeaEnemys (TextButton)
+local ui_SeaEnemys_13 = Instance.new("TextButton")
+ui_SeaEnemys_13.Name = "SeaEnemys"
+ui_SeaEnemys_13.AnchorPoint = Vector2.new(0, 0)
+ui_SeaEnemys_13.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_SeaEnemys_13.BackgroundTransparency = 0
+ui_SeaEnemys_13.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_SeaEnemys_13.BorderSizePixel = 0
+ui_SeaEnemys_13.Position = UDim2.new(0.756818, 0, 0.434043, 0)
+ui_SeaEnemys_13.Rotation = 0
+ui_SeaEnemys_13.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_SeaEnemys_13.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_SeaEnemys_13.Visible = true
+ui_SeaEnemys_13.ZIndex = 1
+ui_SeaEnemys_13.ClipsDescendants = false
+ui_SeaEnemys_13.LayoutOrder = 0
+ui_SeaEnemys_13.Text = "حذف الوحوش🐲"
+ui_SeaEnemys_13.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_SeaEnemys_13.TextSize = 14
+ui_SeaEnemys_13.TextScaled = false
+ui_SeaEnemys_13.TextWrapped = true
+ui_SeaEnemys_13.TextXAlignment = Enum.TextXAlignment.Center
+ui_SeaEnemys_13.TextYAlignment = Enum.TextYAlignment.Center
+ui_SeaEnemys_13.RichText = false
+ui_SeaEnemys_13.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_SeaEnemys_13.TextTransparency = 0
+ui_SeaEnemys_13.AutoButtonColor = true
+ui_SeaEnemys_13.Parent = ui_ScriptFrame_3
+
+-- إنشاء: SkyStuts (TextLabel)
+local ui_SkyStuts_14 = Instance.new("TextLabel")
+ui_SkyStuts_14.Name = "SkyStuts"
+ui_SkyStuts_14.AnchorPoint = Vector2.new(0, 0)
+ui_SkyStuts_14.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_SkyStuts_14.BackgroundTransparency = 1
+ui_SkyStuts_14.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_SkyStuts_14.BorderSizePixel = 0
+ui_SkyStuts_14.Position = UDim2.new(0.809091, 0, 0.910638, 0)
+ui_SkyStuts_14.Rotation = 0
+ui_SkyStuts_14.Size = UDim2.new(0.175, 0, 0.0638298, 0)
+ui_SkyStuts_14.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_SkyStuts_14.Visible = true
+ui_SkyStuts_14.ZIndex = 1
+ui_SkyStuts_14.ClipsDescendants = false
+ui_SkyStuts_14.LayoutOrder = 0
+ui_SkyStuts_14.Text = "حالة السماء:"
+ui_SkyStuts_14.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_SkyStuts_14.TextSize = 14
+ui_SkyStuts_14.TextScaled = false
+ui_SkyStuts_14.TextWrapped = false
+ui_SkyStuts_14.TextXAlignment = Enum.TextXAlignment.Right
+ui_SkyStuts_14.TextYAlignment = Enum.TextYAlignment.Center
+ui_SkyStuts_14.RichText = false
+ui_SkyStuts_14.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_SkyStuts_14.TextTransparency = 0
+ui_SkyStuts_14.Parent = ui_ScriptFrame_3
+
+-- إنشاء: MoonStuts (TextLabel)
+local ui_MoonStuts_15 = Instance.new("TextLabel")
+ui_MoonStuts_15.Name = "MoonStuts"
+ui_MoonStuts_15.AnchorPoint = Vector2.new(0, 0)
+ui_MoonStuts_15.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_MoonStuts_15.BackgroundTransparency = 1
+ui_MoonStuts_15.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_MoonStuts_15.BorderSizePixel = 0
+ui_MoonStuts_15.Position = UDim2.new(0.459091, 0, 0.910638, 0)
+ui_MoonStuts_15.Rotation = 0
+ui_MoonStuts_15.Size = UDim2.new(0.213636, 0, 0.0638298, 0)
+ui_MoonStuts_15.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_MoonStuts_15.Visible = true
+ui_MoonStuts_15.ZIndex = 1
+ui_MoonStuts_15.ClipsDescendants = false
+ui_MoonStuts_15.LayoutOrder = 0
+ui_MoonStuts_15.Text = "حالة القمر: "
+ui_MoonStuts_15.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_MoonStuts_15.TextSize = 14
+ui_MoonStuts_15.TextScaled = false
+ui_MoonStuts_15.TextWrapped = false
+ui_MoonStuts_15.TextXAlignment = Enum.TextXAlignment.Right
+ui_MoonStuts_15.TextYAlignment = Enum.TextYAlignment.Center
+ui_MoonStuts_15.RichText = false
+ui_MoonStuts_15.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_MoonStuts_15.TextTransparency = 0
+ui_MoonStuts_15.Parent = ui_ScriptFrame_3
+
+-- إنشاء: Clock (TextLabel)
+local ui_Clock_16 = Instance.new("TextLabel")
+ui_Clock_16.Name = "Clock"
+ui_Clock_16.AnchorPoint = Vector2.new(0, 0)
+ui_Clock_16.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ui_Clock_16.BackgroundTransparency = 1
+ui_Clock_16.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_Clock_16.BorderSizePixel = 0
+ui_Clock_16.Position = UDim2.new(0.770454, 0, 0.787234, 0)
+ui_Clock_16.Rotation = 0
+ui_Clock_16.Size = UDim2.new(0.213636, 0, 0.0638298, 0)
+ui_Clock_16.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_Clock_16.Visible = true
+ui_Clock_16.ZIndex = 1
+ui_Clock_16.ClipsDescendants = false
+ui_Clock_16.LayoutOrder = 0
+ui_Clock_16.Text = "الساعة:"
+ui_Clock_16.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_Clock_16.TextSize = 14
+ui_Clock_16.TextScaled = false
+ui_Clock_16.TextWrapped = false
+ui_Clock_16.TextXAlignment = Enum.TextXAlignment.Right
+ui_Clock_16.TextYAlignment = Enum.TextYAlignment.Center
+ui_Clock_16.RichText = false
+ui_Clock_16.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_Clock_16.TextTransparency = 0
+ui_Clock_16.Parent = ui_ScriptFrame_3
+
+-- إنشاء: AnchorBtn (TextButton)
+local ui_AnchorBtn_17 = Instance.new("TextButton")
+ui_AnchorBtn_17.Name = "AnchorBtn"
+ui_AnchorBtn_17.AnchorPoint = Vector2.new(0, 0)
+ui_AnchorBtn_17.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_AnchorBtn_17.BackgroundTransparency = 0
+ui_AnchorBtn_17.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_AnchorBtn_17.BorderSizePixel = 0
+ui_AnchorBtn_17.Position = UDim2.new(0.756818, 0, 0.604255, 0)
+ui_AnchorBtn_17.Rotation = 0
+ui_AnchorBtn_17.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_AnchorBtn_17.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_AnchorBtn_17.Visible = true
+ui_AnchorBtn_17.ZIndex = 1
+ui_AnchorBtn_17.ClipsDescendants = false
+ui_AnchorBtn_17.LayoutOrder = 0
+ui_AnchorBtn_17.Text = "التثبيت بالكرسي⛓"
+ui_AnchorBtn_17.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_AnchorBtn_17.TextSize = 14
+ui_AnchorBtn_17.TextScaled = false
+ui_AnchorBtn_17.TextWrapped = false
+ui_AnchorBtn_17.TextXAlignment = Enum.TextXAlignment.Center
+ui_AnchorBtn_17.TextYAlignment = Enum.TextYAlignment.Center
+ui_AnchorBtn_17.RichText = false
+ui_AnchorBtn_17.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_AnchorBtn_17.TextTransparency = 0
+ui_AnchorBtn_17.AutoButtonColor = true
+ui_AnchorBtn_17.Parent = ui_ScriptFrame_3
+
+-- إنشاء: ErrorLabel (TextLabel)
+local ui_ErrorLabel_18 = Instance.new("TextLabel")
+ui_ErrorLabel_18.Name = "ErrorLabel"
+ui_ErrorLabel_18.AnchorPoint = Vector2.new(0, 0)
+ui_ErrorLabel_18.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ui_ErrorLabel_18.BackgroundTransparency = 1
+ui_ErrorLabel_18.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_ErrorLabel_18.BorderSizePixel = 0
+ui_ErrorLabel_18.Position = UDim2.new(-0.00227267, 0, 0.893617, 0)
+ui_ErrorLabel_18.Rotation = 0
+ui_ErrorLabel_18.Size = UDim2.new(0.387397, 0, 0.093617, 0)
+ui_ErrorLabel_18.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_ErrorLabel_18.Visible = false
+ui_ErrorLabel_18.ZIndex = 1
+ui_ErrorLabel_18.ClipsDescendants = false
+ui_ErrorLabel_18.LayoutOrder = 0
+ui_ErrorLabel_18.Text = "تظهر الرسالة هنا"
+ui_ErrorLabel_18.TextColor3 = Color3.fromRGB(255, 0, 0)
+ui_ErrorLabel_18.TextSize = 18
+ui_ErrorLabel_18.TextScaled = false
+ui_ErrorLabel_18.TextWrapped = true
+ui_ErrorLabel_18.TextXAlignment = Enum.TextXAlignment.Center
+ui_ErrorLabel_18.TextYAlignment = Enum.TextYAlignment.Center
+ui_ErrorLabel_18.RichText = false
+ui_ErrorLabel_18.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_ErrorLabel_18.TextTransparency = 0
+ui_ErrorLabel_18.Parent = ui_ScriptFrame_3
+
+-- إنشاء: MirageBtn (TextButton)
+local ui_MirageBtn_19 = Instance.new("TextButton")
+ui_MirageBtn_19.Name = "MirageBtn"
+ui_MirageBtn_19.AnchorPoint = Vector2.new(0, 0)
+ui_MirageBtn_19.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_MirageBtn_19.BackgroundTransparency = 0
+ui_MirageBtn_19.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_MirageBtn_19.BorderSizePixel = 0
+ui_MirageBtn_19.Position = UDim2.new(0.0165613, 0, 0.144681, 0)
+ui_MirageBtn_19.Rotation = 0
+ui_MirageBtn_19.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_MirageBtn_19.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_MirageBtn_19.Visible = true
+ui_MirageBtn_19.ZIndex = 1
+ui_MirageBtn_19.ClipsDescendants = false
+ui_MirageBtn_19.LayoutOrder = 0
+ui_MirageBtn_19.Text = "جزيرة الميراج🌴"
+ui_MirageBtn_19.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_MirageBtn_19.TextSize = 14
+ui_MirageBtn_19.TextScaled = false
+ui_MirageBtn_19.TextWrapped = false
+ui_MirageBtn_19.TextXAlignment = Enum.TextXAlignment.Center
+ui_MirageBtn_19.TextYAlignment = Enum.TextYAlignment.Center
+ui_MirageBtn_19.RichText = false
+ui_MirageBtn_19.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_MirageBtn_19.TextTransparency = 0
+ui_MirageBtn_19.AutoButtonColor = true
+ui_MirageBtn_19.Parent = ui_ScriptFrame_3
+
+-- إنشاء: KitsuneBtn (TextButton)
+local ui_KitsuneBtn_20 = Instance.new("TextButton")
+ui_KitsuneBtn_20.Name = "KitsuneBtn"
+ui_KitsuneBtn_20.AnchorPoint = Vector2.new(0, 0)
+ui_KitsuneBtn_20.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ui_KitsuneBtn_20.BackgroundTransparency = 0
+ui_KitsuneBtn_20.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_KitsuneBtn_20.BorderSizePixel = 0
+ui_KitsuneBtn_20.Position = UDim2.new(0.0165613, 0, 0.306383, 0)
+ui_KitsuneBtn_20.Rotation = 0
+ui_KitsuneBtn_20.Size = UDim2.new(0.227273, 0, 0.12766, 0)
+ui_KitsuneBtn_20.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_KitsuneBtn_20.Visible = true
+ui_KitsuneBtn_20.ZIndex = 1
+ui_KitsuneBtn_20.ClipsDescendants = false
+ui_KitsuneBtn_20.LayoutOrder = 0
+ui_KitsuneBtn_20.Text = "جزيرة الكيتسوني🦊"
+ui_KitsuneBtn_20.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_KitsuneBtn_20.TextSize = 14
+ui_KitsuneBtn_20.TextScaled = false
+ui_KitsuneBtn_20.TextWrapped = false
+ui_KitsuneBtn_20.TextXAlignment = Enum.TextXAlignment.Center
+ui_KitsuneBtn_20.TextYAlignment = Enum.TextYAlignment.Center
+ui_KitsuneBtn_20.RichText = false
+ui_KitsuneBtn_20.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_KitsuneBtn_20.TextTransparency = 0
+ui_KitsuneBtn_20.AutoButtonColor = true
+ui_KitsuneBtn_20.Parent = ui_ScriptFrame_3
+
+-- إنشاء: ToggleBtn (TextButton)
+local ui_ToggleBtn_21 = Instance.new("TextButton")
+ui_ToggleBtn_21.Name = "ToggleBtn"
+ui_ToggleBtn_21.AnchorPoint = Vector2.new(0, 0)
+ui_ToggleBtn_21.BackgroundColor3 = Color3.fromRGB(68, 68, 68)
+ui_ToggleBtn_21.BackgroundTransparency = 0
+ui_ToggleBtn_21.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ui_ToggleBtn_21.BorderSizePixel = 0
+ui_ToggleBtn_21.Position = UDim2.new(0.912775, 0, 0.013308, 0)
+ui_ToggleBtn_21.Rotation = 0
+ui_ToggleBtn_21.Size = UDim2.new(0.0784141, 0, 0.0665399, 0)
+ui_ToggleBtn_21.SizeConstraint = Enum.SizeConstraint.RelativeXY
+ui_ToggleBtn_21.Visible = true
+ui_ToggleBtn_21.ZIndex = 1
+ui_ToggleBtn_21.ClipsDescendants = false
+ui_ToggleBtn_21.LayoutOrder = 0
+ui_ToggleBtn_21.Text = "فتح / اغلاق"
+ui_ToggleBtn_21.TextColor3 = Color3.fromRGB(255, 255, 255)
+ui_ToggleBtn_21.TextSize = 14
+ui_ToggleBtn_21.TextScaled = false
+ui_ToggleBtn_21.TextWrapped = false
+ui_ToggleBtn_21.TextXAlignment = Enum.TextXAlignment.Center
+ui_ToggleBtn_21.TextYAlignment = Enum.TextYAlignment.Center
+ui_ToggleBtn_21.RichText = false
+ui_ToggleBtn_21.FontFace = Font.new("rbxassetid://113086061264643", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+ui_ToggleBtn_21.TextTransparency = 0
+ui_ToggleBtn_21.AutoButtonColor = true
+ui_ToggleBtn_21.Parent = ui_MainFrame_2
+
+-- إنشاء: UICorner (UICorner)
+local ui_UICorner_22 = Instance.new("UICorner")
+ui_UICorner_22.Name = "UICorner"
+ui_UICorner_22.CornerRadius = UDim.new(0, 4)
+ui_UICorner_22.Parent = ui_ToggleBtn_21
+
+--// ==========================================
+--// البرمجات المدمجة التي كانت داخل الواجهة
+--// ==========================================
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_TextButton_7, Name = "LocalScript"}, {__index = ui_TextButton_7})
+	local Players = game:GetService("Players")
+	local UserInputService = game:GetService("UserInputService")
+	local RunService = game:GetService("RunService")
+	
+	local player = Players.LocalPlayer
+	local button = script.Parent -- السكربت موجود داخل الزر مباشرة
+	local throttleFrame = button.Parent -- الفريم المسمى Throttle
+	
+	-- عدّل هذا السطر إذا كان الليبل في مكان آخر، مثلاً: throttleFrame.Parent:FindFirstChild("TextLabel")
+	local speedLabel = throttleFrame:FindFirstChild("TextLabel") or (throttleFrame.Parent and throttleFrame.Parent:FindFirstChild("TextLabel"))
+	
+	local MIN_SPEED = 0
+	local MAX_SPEED = 350
+	local dragging = false
+	
+	-- ضبط الزر ليبدأ من أقصى اليسار في منتصف الفريم عمودياً
+	button.AnchorPoint = Vector2.new(0, 0.5)
+	button.Position = UDim2.new(0, 0, 0.5, 0)
+	if speedLabel and speedLabel:IsA("TextLabel") then
+		speedLabel.Text = tostring(MIN_SPEED)
+	end
+	
+	-- دالة للبحث عن موديل القارب والمقعد الذي يجلس فيه اللاعب
+	local function getActiveBoatAndSeat()
+		local character = player.Character
+		if not character then return nil, nil end
+	
+		local humanoid = character:FindFirstChildOfClass("Humanoid")
+		local seat = humanoid and humanoid.SeatPart
+		if not seat or not seat:IsA("VehicleSeat") then return nil, nil end
+	
+		local boatsFolder = workspace:FindFirstChild("Boats")
+		if boatsFolder and seat:IsDescendantOf(boatsFolder) then
+			for _, boatModel in ipairs(boatsFolder:GetChildren()) do
+				if seat:IsDescendantOf(boatModel) then
+					return boatModel, seat
+				end
+			end
 		end
+	
+		return seat.Parent, seat
 	end
-end
-
--- دالة إظهار رسالة الخطأ لمدة 3 ثوانٍ ثم إخفاؤها
-local function showErrorMessage(text: string)
-	if errorThread then
-		task.cancel(errorThread)
-		errorThread = nil
+	
+	-- دالة لتحديث القيم الثلاث بنفس الرقم
+	local function applySpeedValues(targetSpeed)
+		local boatModel, seat = getActiveBoatAndSeat()
+		if not seat then return end
+	
+		-- 1. تحديث IntValue باسم Speed داخل القارب أو المقعد
+		local speedValue = (boatModel and boatModel:FindFirstChild("Speed", true)) or seat:FindFirstChild("Speed", true)
+		if speedValue and (speedValue:IsA("IntValue") or speedValue:IsA("NumberValue")) then
+			speedValue.Value = targetSpeed
+		end
+	
+		-- 2. تحديث MaxSpeed داخل control (سواء كائن قيمة أو Attribute)
+		local control = seat:FindFirstChild("control")
+		if control then
+			local maxSpeedObj = control:FindFirstChild("MaxSpeed")
+			if maxSpeedObj and (maxSpeedObj:IsA("IntValue") or maxSpeedObj:IsA("NumberValue")) then
+				maxSpeedObj.Value = targetSpeed
+			end
+			if control:GetAttribute("MaxSpeed") ~= nil or typeof(targetSpeed) == "number" then
+				control:SetAttribute("MaxSpeed", targetSpeed)
+			end
+		end
+	
+		-- 3. تحديث Attribute باسم MaxSpeed على المقعد أو القارب
+		seat:SetAttribute("MaxSpeed", targetSpeed)
+		if boatModel then
+			boatModel:SetAttribute("MaxSpeed", targetSpeed)
+		end
+	
+		-- تحديث خاصية المقعد نفسها
+		seat.MaxSpeed = targetSpeed
 	end
-
-	errorLabel.Text = text
-	errorLabel.Visible = true
-
-	errorThread = task.delay(3, function()
-		errorLabel.Visible = false
-		errorThread = nil
+	
+	-- حساب موقع الزر داخل حدود الفريم وتحديث الرقم
+	local function updateThrottleFromInputX(inputX)
+		if not throttleFrame or not throttleFrame:IsA("GuiObject") then return end
+	
+		local frameStartX = throttleFrame.AbsolutePosition.X
+		local frameWidth = throttleFrame.AbsoluteSize.X
+		local buttonWidth = button.AbsoluteSize.X
+	
+		local maxOffsetX = frameWidth - buttonWidth
+		if maxOffsetX <= 0 then return end
+	
+		local desiredX = inputX - frameStartX - (buttonWidth * 0.5)
+		local clampedX = math.clamp(desiredX, 0, maxOffsetX)
+	
+		button.Position = UDim2.new(0, clampedX, 0.5, 0)
+	
+		local ratio = clampedX / maxOffsetX
+		local speedValueNum = math.round(MIN_SPEED + (ratio * (MAX_SPEED - MIN_SPEED)))
+	
+		if speedLabel and speedLabel:IsA("TextLabel") then
+			speedLabel.Text = tostring(speedValueNum)
+		end
+	
+		applySpeedValues(speedValueNum)
+	end
+	
+	button.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			updateThrottleFromInputX(input.Position.X)
+		end
 	end)
-end
-
--- البحث عن قارب يملك ObjectValue باسم Owner وقيمته تساوي اللاعب الحالي
-local function findPlayerBoat(): Model?
-	for _, item in ipairs(boatsFolder:GetChildren()) do
-		if item:IsA("Model") then
-			local ownerValue = item:FindFirstChild("Owner")
-			if ownerValue and ownerValue:IsA("ObjectValue") and ownerValue.Value == player then
-				return item
-			end
-		end
-	end
-	return nil
-end
-
--- إيجاد VehicleSeat داخل القارب
-local function findVehicleSeat(boat: Model): VehicleSeat?
-	for _, desc in ipairs(boat:GetDescendants()) do
-		if desc:IsA("VehicleSeat") then
-			return desc
-		end
-	end
-	return nil
-end
-
--- إيقاف/فك التوين الحالي
-local function stopCurrentProcess()
-	if activeConnection then
-		activeConnection:Disconnect()
-		activeConnection = nil
-	end
-end
-
--- حساب أعلى نقطة (أعلى قيمة Y) داخل موديل الجزيرة
-local function getHighestPointInModel(model: Model): Vector3?
-	local highestY: number? = nil
-	local bestXZ = Vector2.zero
-
-	for _, desc in ipairs(model:GetDescendants()) do
-		if desc:IsA("BasePart") then
-			local topY = desc.Position.Y + (desc.Size.Y * 0.5)
-			if highestY == nil or topY > highestY then
-				highestY = topY
-				bestXZ = Vector2.new(desc.Position.X, desc.Position.Z)
-			end
-		end
-	end
-
-	if highestY ~= nil then
-		return Vector3.new(bestXZ.X, highestY + 4, bestXZ.Y)
-	end
-
-	local pivot = model:GetPivot()
-	return pivot.Position + Vector3.new(0, 15, 0)
-end
-
--- Tween مخصص بالكامل بدون TweenService لتحريك جزء إلى هدف ثم فك التوين
-local function customTweenToCFrame(
-	targetPart: BasePart,
-	targetPos: Vector3,
-	duration: number,
-	sitHumanoid: Humanoid?,
-	seat: VehicleSeat?,
-	onCompleted: (() -> ())?
-)
-	stopCurrentProcess()
-
-	local startCFrame = targetPart.CFrame
-	local goalCFrame = CFrame.new(targetPos) * (startCFrame - startCFrame.Position)
-	local elapsed = 0
-
-	local function easeOutCubic(t: number): number
-		return 1 - ((1 - t) ^ 3)
-	end
-
-	activeConnection = RunService.Heartbeat:Connect(function(dt: number)
-		if not targetPart.Parent then
-			stopCurrentProcess()
-			return
-		end
-
-		elapsed += dt
-		local alpha = math.clamp(elapsed / duration, 0, 1)
-		local easedAlpha = easeOutCubic(alpha)
-
-		targetPart.AssemblyLinearVelocity = Vector3.zero
-		targetPart.AssemblyAngularVelocity = Vector3.zero
-		targetPart.CFrame = startCFrame:Lerp(goalCFrame, easedAlpha)
-
-		if alpha >= 1 then
-			-- فك التوين فوراً عند الانتهاء
-			stopCurrentProcess()
-
-			if sitHumanoid and seat then
-				seat:Sit(sitHumanoid)
-			end
-
-			if onCompleted then
-				onCompleted()
-			end
+	
+	UserInputService.InputEnded:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = false
 		end
 	end)
-end
-
--- ضبط والتحقق من القيم الثلاث لتصبح 350
-local function setAndVerifySpeeds(boat: Model, seat: VehicleSeat): boolean
-	local speedObj = boat:FindFirstChild("Speed", true)
-	if speedObj and speedObj:IsA("IntValue") then
-		speedObj.Value = TARGET_SPEED
-	end
-
-	boat:SetAttribute("MaxSpeed", TARGET_SPEED)
-	seat:SetAttribute("MaxSpeed", TARGET_SPEED)
-
-	local controlObj = boat:FindFirstChild("control", true) or boat:FindFirstChild("Control", true)
-	if controlObj then
-		if controlObj:GetAttribute("MaxSpeed") ~= nil then
-			controlObj:SetAttribute("MaxSpeed", TARGET_SPEED)
-		end
-
-		local controlMaxSpeed = controlObj:FindFirstChild("MaxSpeed", true)
-		if controlMaxSpeed then
-			if controlMaxSpeed:IsA("IntValue") or controlMaxSpeed:IsA("NumberValue") then
-				controlMaxSpeed.Value = TARGET_SPEED
-			elseif controlMaxSpeed:IsA("Configuration") or controlMaxSpeed:IsA("Folder") then
-				controlMaxSpeed:SetAttribute("Value", TARGET_SPEED)
-			end
-		end
-	end
-
-	local speedOk = (speedObj and speedObj:IsA("IntValue") and speedObj.Value == TARGET_SPEED) or (speedObj == nil)
-	local attrOk = (boat:GetAttribute("MaxSpeed") == TARGET_SPEED) or (seat:GetAttribute("MaxSpeed") == TARGET_SPEED)
-
-	local controlOk = true
-	if controlObj then
-		local controlMaxSpeed = controlObj:FindFirstChild("MaxSpeed", true)
-		if controlMaxSpeed and (controlMaxSpeed:IsA("IntValue") or controlMaxSpeed:IsA("NumberValue")) then
-			controlOk = (controlMaxSpeed.Value == TARGET_SPEED)
-		elseif controlObj:GetAttribute("MaxSpeed") ~= nil then
-			controlOk = (controlObj:GetAttribute("MaxSpeed") == TARGET_SPEED)
-		end
-	end
-
-	return speedOk and attrOk and controlOk
-end
-
--- الضغط على الأزرار الأربعة بالترتيب
-local function triggerTargetGuiButtons()
-	for _, btnName in ipairs(targetButtonNames) do
-		if not isActive then
-			return
-		end
-		clickGuiButtonByName(btnName)
-		task.wait(0.08)
-	end
-end
-
--- إطفاء كل شيء عند الضغط مرة ثانية
-local function turnOffAll()
-	isActive = false
-	stopCurrentProcess()
-
-	local character = player.Character
-	local humanoid = character and character:FindFirstChildOfClass("Humanoid")
-	if humanoid and humanoid.Sit then
-		humanoid.Sit = false
-		local rootPart = character:FindFirstChild("HumanoidRootPart") :: BasePart?
-		if rootPart then
-			rootPart.CFrame = rootPart.CFrame * CFrame.new(0, 3, -4)
-		end
-	end
-
-	currentBoat = nil
-end
-
--- تشغيل النظام عند الضغط لأول مرة
-local function turnOnAll()
-	local boat = findPlayerBoat()
-	if not boat then
-		showErrorMessage("لا يوجد قارب لك اشتري قارب")
-		isActive = false
-		return
-	end
-
-	local seat = findVehicleSeat(boat)
-	if not seat then
-		showErrorMessage("لا يوجد قارب لك اشتري قارب")
-		isActive = false
-		return
-	end
-
-	local character = player.Character
-	local humanoid = character and character:FindFirstChildOfClass("Humanoid")
-	local rootPart = character and (character:FindFirstChild("HumanoidRootPart") :: BasePart?)
-
-	if not character or not humanoid or not rootPart then
-		isActive = false
-		return
-	end
-
-	isActive = true
-	currentBoat = boat
-
-	local aboveSeatPos = (seat.CFrame * CFrame.new(0, 2.5, 0)).Position
-	customTweenToCFrame(rootPart, aboveSeatPos, TWEEN_DURATION, humanoid, seat, function()
-		if not isActive then
-			return
-		end
-
-		local timeout = os.clock() + 1.5
-		while isActive and seat.Occupant ~= humanoid and os.clock() < timeout do
-			task.wait(0.05)
-		end
-
-		if not isActive or seat.Occupant ~= humanoid then
-			return
-		end
-
-		if setAndVerifySpeeds(boat, seat) then
-			triggerTargetGuiButtons()
+	
+	RunService.RenderStepped:Connect(function()
+		if dragging then
+			local mousePos = UserInputService:GetMouseLocation()
+			updateThrottleFromInputX(mousePos.X)
 		end
 	end)
-end
-
--- معالجة ترسبن موديل MirageIsland داخل workspace.Map
-local function handleMirageIsland(model: Model)
-	if not model:IsA("Model") or model.Name ~= "MirageIsland" then
-		return
-	end
-	if handledMirages[model] then
-		return
-	end
-	handledMirages[model] = true
-
-	local waitUntil = os.clock() + 2
-	while model.Parent and #model:GetDescendants() == 0 and os.clock() < waitUntil do
-		task.wait(0.05)
-	end
-	if not model.Parent then
-		return
-	end
-
-	-- 1) الضغط على AnchorBtn تلقائياً
-	clickGuiButtonByName("AnchorBtn")
-
-	-- 2) حساب أعلى نقطة في MirageIsland
-	local highestTargetPos = getHighestPointInModel(model)
-	if not highestTargetPos then
-		return
-	end
-
-	local character = player.Character
-	local rootPart = character and (character:FindFirstChild("HumanoidRootPart") :: BasePart?)
-	local humanoid = character and character:FindFirstChildOfClass("Humanoid")
-
-	if not rootPart then
-		return
-	end
-
-	local movePart: BasePart = rootPart
-	if humanoid and humanoid.SeatPart and humanoid.SeatPart:IsA("BasePart") then
-		local seatPart = humanoid.SeatPart
-		if currentBoat and seatPart:IsDescendantOf(currentBoat) and currentBoat.PrimaryPart then
-			movePart = currentBoat.PrimaryPart
-		elseif currentBoat and seatPart:IsDescendantOf(currentBoat) then
-			movePart = seatPart
-		end
-	end
-
-	-- 3) تنفيذ Tween مخصص لأعلى نقطة ثم فك التوين تلقائياً
-	customTweenToCFrame(movePart, highestTargetPos, MIRAGE_TWEEN_DURATION, nil, nil, function()
-		stopCurrentProcess()
-	end)
-end
-
--- رصد أي MirageIsland يترسبن داخل workspace.Map
-mirageConnection = mapFolder.DescendantAdded:Connect(function(descendant: Instance)
-	if descendant:IsA("Model") and descendant.Name == "MirageIsland" then
-		handleMirageIsland(descendant)
-	end
 end)
 
--- فحص إذا كان MirageIsland موجوداً مسبقاً داخل workspace.Map
-for _, desc in ipairs(mapFolder:GetDescendants()) do
-	if desc:IsA("Model") and desc.Name == "MirageIsland" then
-		task.spawn(handleMirageIsland, desc)
-	end
-end
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_RocksBtn_11, Name = "LocalScript"}, {__index = ui_RocksBtn_11})
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+		local rocksFolder = workspace:FindFirstChild("Rocks")
+		if rocksFolder then
+			rocksFolder.Parent = ReplicatedStorage
+		end
+	end)
+end)
 
-toggleButton.MouseButton1Click:Connect(function()
-	if isActive then
-		turnOffAll()
-	else
-		turnOnAll()
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_MoveBtn_12, Name = "LocalScript"}, {__index = ui_MoveBtn_12})
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	
+	local player = Players.LocalPlayer
+	local button = script.Parent
+	local autoForward = false
+	
+	button.MouseButton1Click:Connect(function()
+		autoForward = not autoForward
+		button.Text = autoForward and "إيقاف التلقائي" or "مشي تلقائي"
+	end)
+	
+	RunService.RenderStepped:Connect(function()
+		if not autoForward then return end
+	
+		local character = player.Character
+		local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+		local seat = humanoid and humanoid.SeatPart
+	
+		if seat and seat:IsA("VehicleSeat") then
+			seat.Throttle = 1
+		end
+	end)
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_SeaEnemys_13, Name = "LocalScript"}, {__index = ui_SeaEnemys_13})
+	local RunService = game:GetService("RunService")
+	local folderNames = { "Enemies", "SeaBeasts" }
+	
+	task.spawn(function()
+		while true do
+			for _, folderName in ipairs(folderNames) do
+				local targetFolder = workspace:FindFirstChild(folderName)
+				if targetFolder then
+					for _, item in ipairs(targetFolder:GetChildren()) do
+						item:Destroy()
+					end
+				end
+			end
+			task.wait(0.01)
+		end
+	end)
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_SkyStuts_14, Name = "LocalScript"}, {__index = ui_SkyStuts_14})
+	local Lighting = game:GetService("Lighting")
+	local RunService = game:GetService("RunService")
+	local label = script.Parent
+	
+	local function updateSkyStatus()
+		local clockTime = Lighting.ClockTime
+		local isNight = (clockTime >= 18) or (clockTime < 6)
+		local status = isNight and "ليل🌙" or "صباح☀"
+		label.Text = "حالة السماء: " .. status
 	end
+	
+	updateSkyStatus()
+	RunService.RenderStepped:Connect(updateSkyStatus)
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_MoonStuts_15, Name = "LocalScript"}, {__index = ui_MoonStuts_15})
+	local Lighting = game:GetService("Lighting")
+	local label = script.Parent
+	
+	if not label:IsA("TextLabel") then
+		warn("يجب وضع السكربت داخل TextLabel")
+		return
+	end
+	
+	local TOTAL_PHASES = 8
+	local FULL_MOON_PHASE = 5 -- البدر يقع في الطور رقم 5
+	
+	-- ترتيب الأطوار من 1 إلى 8 وعدد الليالي المتبقية للوصول إلى الطور 5 (Full Moon)
+	local MoonPhases = {
+		["9709150401"] = { Index = 1, Name = "", NightsToFull = 4 },
+		["9709150086"] = { Index = 2, Name = "", NightsToFull = 3 },
+		["9709149680"] = { Index = 3, Name = "", NightsToFull = 2 },
+		["9709149052"] = { Index = 4, Name = "", NightsToFull = 1 },
+		["9709149431"] = { Index = 5, Name = "Full Moon", NightsToFull = 0 },
+		["9709143733"] = { Index = 6, Name = "", NightsToFull = 7 },
+		["9709139597"] = { Index = 7, Name = "", NightsToFull = 6 },
+		["9709135895"] = { Index = 8, Name = "", NightsToFull = 5 },
+	}
+	
+	local function getAssetId(textureStr)
+		if type(textureStr) ~= "string" then
+			return nil
+		end
+		return string.match(textureStr, "%d+")
+	end
+	
+	local function isNight(clockTime)
+		-- الليل يبدأ من 18:00 وحتى 06:00
+		return clockTime >= 18 or clockTime < 6
+	end
+	
+	local function getWhenFullMoonText(phaseInfo, clockTime)
+		local nightNow = isNight(clockTime)
+	
+		-- الحالة 1: الطور 5 والوقت ليل (Full Moon شغال الآن)
+		if phaseInfo.Index == FULL_MOON_PHASE and nightNow then
+			return "الفل مون: الآن (نشط)"
+		end
+	
+		-- الحالة 2: الطور 5 لكن الوقت نهار (سيظهر الليلة عند الساعة 18:00)
+		if phaseInfo.Index == FULL_MOON_PHASE and not nightNow then
+			local hoursLeftInGame = 18 - clockTime
+			local realMinutesLeft = math.max(0, hoursLeftInGame) -- 1 دقيقة حقيقية ≈ 1 ساعة داخل اللعبة
+			return string.format("الفل مون: الليلة (بعد ~%.1f د)", realMinutesLeft)
+		end
+	
+		-- الحالة 3: أي طور آخر -> نحسب عدد الليالي المتبقية للوصول للطور 5
+		-- ملاحظة: كل ليلة في اللعبة تعادل 24 دقيقة واقعية تقريباً
+		local nightsLeft = phaseInfo.NightsToFull
+		local approxMinutes = nightsLeft * 24
+	
+		if nightsLeft == 1 then
+			return string.format("الفل مون: الليلة القادمة (~%d د)", approxMinutes)
+		else
+			return string.format("الفل مون: بعد %d ليالٍ (~%d د)", nightsLeft, approxMinutes)
+		end
+	end
+	
+	local function updateUI()
+		local sky = Lighting:FindFirstChildOfClass("Sky")
+		if not sky then
+			label.Text = "? / 8 | الفل مون: غير معروف"
+			return
+		end
+	
+		local assetId = getAssetId(sky.MoonTextureId)
+		local phaseInfo = assetId and MoonPhases[assetId]
+	
+		if not phaseInfo then
+			label.Text = "? / 8 | الفل مون: طور غير مسجل"
+			return
+		end
+	
+		local statusText = getWhenFullMoonText(phaseInfo, Lighting.ClockTime)
+		label.Text = string.format("%d / %d | %s", phaseInfo.Index, TOTAL_PHASES, statusText)
+	end
+	
+	-- تحديث فوري عند تغير الوقت أو صورة القمر أو إضافة Sky
+	Lighting:GetPropertyChangedSignal("ClockTime"):Connect(updateUI)
+	
+	Lighting.ChildAdded:Connect(function(child)
+		if child:IsA("Sky") then
+			updateUI()
+			child:GetPropertyChangedSignal("MoonTextureId"):Connect(updateUI)
+		end
+	end)
+	
+	local existingSky = Lighting:FindFirstChildOfClass("Sky")
+	if existingSky then
+		existingSky:GetPropertyChangedSignal("MoonTextureId"):Connect(updateUI)
+	end
+	
+	updateUI()
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_Clock_16, Name = "LocalScript"}, {__index = ui_Clock_16})
+	local Lighting = game:GetService("Lighting")
+	local label = script.Parent
+	
+	if not label:IsA("TextLabel") then
+		warn("يجب وضع السكربت داخل TextLabel")
+		return
+	end
+	
+	local function isNight(clockTime)
+		return clockTime >= 18 or clockTime < 6
+	end
+	
+	local function formatClockTimeHMS(clockTime)
+		local normalized = clockTime % 24
+		local totalSeconds = math.floor(normalized * 3600)
+	
+		local hours = math.floor(totalSeconds / 3600) % 24
+		local minutes = math.floor((totalSeconds % 3600) / 60)
+		local seconds = totalSeconds % 60
+	
+		return string.format("%02d:%02d:%02d", hours, minutes, seconds)
+	end
+	
+	local function updateClockLabel()
+		local clockTime = Lighting.ClockTime
+		local formatted = formatClockTimeHMS(clockTime)
+		local period = isNight(clockTime) and "ليل" or "نهار"
+	
+		label.Text = string.format("الساعة: %s (%s)", formatted, period)
+	end
+	
+	Lighting:GetPropertyChangedSignal("ClockTime"):Connect(updateClockLabel)
+	updateClockLabel()
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_AnchorBtn_17, Name = "LocalScript"}, {__index = ui_AnchorBtn_17})
+	local button = script.Parent
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	
+	local player = Players.LocalPlayer
+	
+	local isLocked = false
+	local lockedSeat = nil
+	local heartbeatConn = nil
+	local savedJumpPower = 50
+	
+	local function getRootPart(character)
+		return character and character:FindFirstChild("HumanoidRootPart")
+	end
+	
+	local function getHumanoid(character)
+		return character and character:FindFirstChildOfClass("Humanoid")
+	end
+	
+	local function clearSeatWeld(seat, rootPart)
+		if not seat or not rootPart then return end
+		for _, child in ipairs(seat:GetChildren()) do
+			if child:IsA("Weld") and child.Name == "LockedSeatWeld" and child.Part1 == rootPart then
+				child:Destroy()
+			end
+		end
+	end
+	
+	local function keepSeated(seat, humanoid, rootPart)
+		if not seat or not seat.Parent or not humanoid or not rootPart then return end
+	
+		-- منع القفز
+		humanoid.UseJumpPower = true
+		humanoid.JumpPower = 0
+		humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, false)
+	
+		-- إرجاع الجلوس إذا تم إخراجه بأي مؤثر أو دفع
+		if humanoid.SeatPart ~= seat then
+			seat:Sit(humanoid)
+		end
+	
+		-- تثبيت اللاعب على الكرسي عبر Weld لمنع الإزاحة أو الطرد الفيزيائي
+		local hasWeld = false
+		for _, child in ipairs(seat:GetChildren()) do
+			if child:IsA("Weld") and child.Name == "LockedSeatWeld" and child.Part1 == rootPart then
+				hasWeld = true
+				break
+			end
+		end
+	
+		if not hasWeld then
+			local weld = Instance.new("Weld")
+			weld.Name = "LockedSeatWeld"
+			weld.Part0 = seat
+			weld.Part1 = rootPart
+			weld.C0 = CFrame.new(0, (seat.Size.Y / 2) + (rootPart.Size.Y / 2) - 0.1, 0)
+			weld.Parent = seat
+		end
+	end
+	
+	local function unlockSeat()
+		isLocked = false
+		button.Text = "تثبيت على الكرسي"
+	
+		if heartbeatConn then
+			heartbeatConn:Disconnect()
+			heartbeatConn = nil
+		end
+	
+		local character = player.Character
+		local humanoid = getHumanoid(character)
+		local rootPart = getRootPart(character)
+	
+		if humanoid then
+			humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping, true)
+			humanoid.JumpPower = savedJumpPower
+		end
+	
+		clearSeatWeld(lockedSeat, rootPart)
+		lockedSeat = nil
+	end
+	
+	local function lockSeat()
+		local character = player.Character
+		local humanoid = getHumanoid(character)
+		local rootPart = getRootPart(character)
+		if not humanoid or not rootPart then return end
+	
+		local currentSeat = humanoid.SeatPart
+		if not currentSeat or not (currentSeat:IsA("Seat") or currentSeat:IsA("VehicleSeat")) then
+			return
+		end
+	
+		isLocked = true
+		lockedSeat = currentSeat
+		savedJumpPower = humanoid.JumpPower > 0 and humanoid.JumpPower or 50
+		button.Text = "فك التثبيت"
+	
+		keepSeated(lockedSeat, humanoid, rootPart)
+	
+		heartbeatConn = RunService.Heartbeat:Connect(function()
+			local char = player.Character
+			local hum = getHumanoid(char)
+			local root = getRootPart(char)
+	
+			if not char or not char.Parent or not hum or not root or hum.Health <= 0 then
+				unlockSeat()
+				return
+			end
+	
+			if not lockedSeat or not lockedSeat.Parent then
+				unlockSeat()
+				return
+			end
+	
+			keepSeated(lockedSeat, hum, root)
+		end)
+	end
+	
+	button.Text = "تثبيت على الكرسي"
+	
+	button.MouseButton1Click:Connect(function()
+		if isLocked then
+			unlockSeat()
+		else
+			lockSeat()
+		end
+	end)
+	
+	player.CharacterAdded:Connect(function()
+		unlockSeat()
+	end)
+end)
+
+-- تشغيل برمجة: DragScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_ScriptFrame_3, Name = "DragScript"}, {__index = ui_ScriptFrame_3})
+	local UserInputService = game:GetService("UserInputService")
+	
+	local frame = script.Parent
+	local dragging = false
+	local dragInput, dragStart, startPos
+	
+	local function update(input)
+		local delta = input.Position - dragStart
+		frame.Position = UDim2.new(
+			startPos.X.Scale,
+			startPos.X.Offset + delta.X,
+			startPos.Y.Scale,
+			startPos.Y.Offset + delta.Y
+		)
+	end
+	
+	frame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = frame.Position
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	frame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_MirageBtn_19, Name = "LocalScript"}, {__index = ui_MirageBtn_19})
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	
+	local player = Players.LocalPlayer
+	local toggleButton = script.Parent -- الزر الرئيسي للتحكم
+	
+	-- ربط مباشر بـ ScreenGui باسم MirageGui داخل PlayerGui
+	local playerGui = player:WaitForChild("PlayerGui")
+	local mirageGui: ScreenGui = playerGui:WaitForChild("SeaHunterGui") :: ScreenGui
+	local errorLabel: TextLabel = mirageGui:WaitForChild("ErrorLabel", true) :: TextLabel
+	
+	local buttonsFolder: Instance = mirageGui -- يبحث تلقائياً داخل MirageGui حتى لو كانت الأزرار داخل Frame
+	local targetButtonNames = { "AnchorBtn", "MoveBtn", "SeaEnemys", "RocksBtn" }
+	
+	local boatsFolder = workspace:WaitForChild("Boats")
+	local mapFolder = workspace:WaitForChild("Map")
+	
+	local TARGET_SPEED = 350
+	local TWEEN_DURATION = 1.2 -- مدة التوين المخصص بالثواني
+	local MIRAGE_TWEEN_DURATION = 2.0 -- مدة التوين لأعلى نقطة في MirageIsland
+	
+	local isActive = false
+	local activeConnection: RBXScriptConnection? = nil
+	local mirageConnection: RBXScriptConnection? = nil
+	local errorThread: thread? = nil
+	local currentBoat: Model? = nil
+	local handledMirages: { [Model]: boolean } = {}
+	
+	-- الضغط على زر واجهة محدد بالاسم داخل MirageGui
+	local function clickGuiButtonByName(btnName: string)
+		local btn = buttonsFolder:FindFirstChild(btnName, true)
+		if btn and btn:IsA("GuiButton") then
+			if typeof(firesignal) == "function" then
+				firesignal(btn.MouseButton1Click)
+			else
+				btn.Activated:Fire()
+			end
+		end
+	end
+	
+	-- دالة إظهار رسالة الخطأ لمدة 3 ثوانٍ ثم إخفاؤها
+	local function showErrorMessage(text: string)
+		if errorThread then
+			task.cancel(errorThread)
+			errorThread = nil
+		end
+	
+		errorLabel.Text = text
+		errorLabel.Visible = true
+	
+		errorThread = task.delay(3, function()
+			errorLabel.Visible = false
+			errorThread = nil
+		end)
+	end
+	
+	-- البحث عن قارب يملك ObjectValue باسم Owner وقيمته تساوي اللاعب الحالي
+	local function findPlayerBoat(): Model?
+		for _, item in ipairs(boatsFolder:GetChildren()) do
+			if item:IsA("Model") then
+				local ownerValue = item:FindFirstChild("Owner")
+				if ownerValue and ownerValue:IsA("ObjectValue") and ownerValue.Value == player then
+					return item
+				end
+			end
+		end
+		return nil
+	end
+	
+	-- إيجاد VehicleSeat داخل القارب
+	local function findVehicleSeat(boat: Model): VehicleSeat?
+		for _, desc in ipairs(boat:GetDescendants()) do
+			if desc:IsA("VehicleSeat") then
+				return desc
+			end
+		end
+		return nil
+	end
+	
+	-- إيقاف/فك التوين الحالي
+	local function stopCurrentProcess()
+		if activeConnection then
+			activeConnection:Disconnect()
+			activeConnection = nil
+		end
+	end
+	
+	-- حساب أعلى نقطة (أعلى قيمة Y) داخل موديل الجزيرة
+	local function getHighestPointInModel(model: Model): Vector3?
+		local highestY: number? = nil
+		local bestXZ = Vector2.zero
+	
+		for _, desc in ipairs(model:GetDescendants()) do
+			if desc:IsA("BasePart") then
+				local topY = desc.Position.Y + (desc.Size.Y * 0.5)
+				if highestY == nil or topY > highestY then
+					highestY = topY
+					bestXZ = Vector2.new(desc.Position.X, desc.Position.Z)
+				end
+			end
+		end
+	
+		if highestY ~= nil then
+			return Vector3.new(bestXZ.X, highestY + 4, bestXZ.Y)
+		end
+	
+		local pivot = model:GetPivot()
+		return pivot.Position + Vector3.new(0, 15, 0)
+	end
+	
+	-- Tween مخصص بالكامل بدون TweenService لتحريك جزء إلى هدف ثم فك التوين
+	local function customTweenToCFrame(
+		targetPart: BasePart,
+		targetPos: Vector3,
+		duration: number,
+		sitHumanoid: Humanoid?,
+		seat: VehicleSeat?,
+		onCompleted: (() -> ())?
+	)
+		stopCurrentProcess()
+	
+		local startCFrame = targetPart.CFrame
+		local goalCFrame = CFrame.new(targetPos) * (startCFrame - startCFrame.Position)
+		local elapsed = 0
+	
+		local function easeOutCubic(t: number): number
+			return 1 - ((1 - t) ^ 3)
+		end
+	
+		activeConnection = RunService.Heartbeat:Connect(function(dt: number)
+			if not targetPart.Parent then
+				stopCurrentProcess()
+				return
+			end
+	
+			elapsed += dt
+			local alpha = math.clamp(elapsed / duration, 0, 1)
+			local easedAlpha = easeOutCubic(alpha)
+	
+			targetPart.AssemblyLinearVelocity = Vector3.zero
+			targetPart.AssemblyAngularVelocity = Vector3.zero
+			targetPart.CFrame = startCFrame:Lerp(goalCFrame, easedAlpha)
+	
+			if alpha >= 1 then
+				-- فك التوين فوراً عند الانتهاء
+				stopCurrentProcess()
+	
+				if sitHumanoid and seat then
+					seat:Sit(sitHumanoid)
+				end
+	
+				if onCompleted then
+					onCompleted()
+				end
+			end
+		end)
+	end
+	
+	-- ضبط والتحقق من القيم الثلاث لتصبح 350
+	local function setAndVerifySpeeds(boat: Model, seat: VehicleSeat): boolean
+		local speedObj = boat:FindFirstChild("Speed", true)
+		if speedObj and speedObj:IsA("IntValue") then
+			speedObj.Value = TARGET_SPEED
+		end
+	
+		boat:SetAttribute("MaxSpeed", TARGET_SPEED)
+		seat:SetAttribute("MaxSpeed", TARGET_SPEED)
+	
+		local controlObj = boat:FindFirstChild("control", true) or boat:FindFirstChild("Control", true)
+		if controlObj then
+			if controlObj:GetAttribute("MaxSpeed") ~= nil then
+				controlObj:SetAttribute("MaxSpeed", TARGET_SPEED)
+			end
+	
+			local controlMaxSpeed = controlObj:FindFirstChild("MaxSpeed", true)
+			if controlMaxSpeed then
+				if controlMaxSpeed:IsA("IntValue") or controlMaxSpeed:IsA("NumberValue") then
+					controlMaxSpeed.Value = TARGET_SPEED
+				elseif controlMaxSpeed:IsA("Configuration") or controlMaxSpeed:IsA("Folder") then
+					controlMaxSpeed:SetAttribute("Value", TARGET_SPEED)
+				end
+			end
+		end
+	
+		local speedOk = (speedObj and speedObj:IsA("IntValue") and speedObj.Value == TARGET_SPEED) or (speedObj == nil)
+		local attrOk = (boat:GetAttribute("MaxSpeed") == TARGET_SPEED) or (seat:GetAttribute("MaxSpeed") == TARGET_SPEED)
+	
+		local controlOk = true
+		if controlObj then
+			local controlMaxSpeed = controlObj:FindFirstChild("MaxSpeed", true)
+			if controlMaxSpeed and (controlMaxSpeed:IsA("IntValue") or controlMaxSpeed:IsA("NumberValue")) then
+				controlOk = (controlMaxSpeed.Value == TARGET_SPEED)
+			elseif controlObj:GetAttribute("MaxSpeed") ~= nil then
+				controlOk = (controlObj:GetAttribute("MaxSpeed") == TARGET_SPEED)
+			end
+		end
+	
+		return speedOk and attrOk and controlOk
+	end
+	
+	-- الضغط على الأزرار الأربعة بالترتيب
+	local function triggerTargetGuiButtons()
+		for _, btnName in ipairs(targetButtonNames) do
+			if not isActive then
+				return
+			end
+			clickGuiButtonByName(btnName)
+			task.wait(0.08)
+		end
+	end
+	
+	-- إطفاء كل شيء عند الضغط مرة ثانية
+	local function turnOffAll()
+		isActive = false
+		stopCurrentProcess()
+	
+		local character = player.Character
+		local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+		if humanoid and humanoid.Sit then
+			humanoid.Sit = false
+			local rootPart = character:FindFirstChild("HumanoidRootPart") :: BasePart?
+			if rootPart then
+				rootPart.CFrame = rootPart.CFrame * CFrame.new(0, 3, -4)
+			end
+		end
+	
+		currentBoat = nil
+	end
+	
+	-- تشغيل النظام عند الضغط لأول مرة
+	local function turnOnAll()
+		local boat = findPlayerBoat()
+		if not boat then
+			showErrorMessage("لا يوجد قارب لك اشتري قارب")
+			isActive = false
+			return
+		end
+	
+		local seat = findVehicleSeat(boat)
+		if not seat then
+			showErrorMessage("لا يوجد قارب لك اشتري قارب")
+			isActive = false
+			return
+		end
+	
+		local character = player.Character
+		local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+		local rootPart = character and (character:FindFirstChild("HumanoidRootPart") :: BasePart?)
+	
+		if not character or not humanoid or not rootPart then
+			isActive = false
+			return
+		end
+	
+		isActive = true
+		currentBoat = boat
+	
+		local aboveSeatPos = (seat.CFrame * CFrame.new(0, 2.5, 0)).Position
+		customTweenToCFrame(rootPart, aboveSeatPos, TWEEN_DURATION, humanoid, seat, function()
+			if not isActive then
+				return
+			end
+	
+			local timeout = os.clock() + 1.5
+			while isActive and seat.Occupant ~= humanoid and os.clock() < timeout do
+				task.wait(0.05)
+			end
+	
+			if not isActive or seat.Occupant ~= humanoid then
+				return
+			end
+	
+			if setAndVerifySpeeds(boat, seat) then
+				triggerTargetGuiButtons()
+			end
+		end)
+	end
+	
+	-- معالجة ترسبن موديل MirageIsland داخل workspace.Map
+	local function handleMirageIsland(model: Model)
+		if not model:IsA("Model") or model.Name ~= "MirageIsland" then
+			return
+		end
+		if handledMirages[model] then
+			return
+		end
+		handledMirages[model] = true
+	
+		local waitUntil = os.clock() + 2
+		while model.Parent and #model:GetDescendants() == 0 and os.clock() < waitUntil do
+			task.wait(0.05)
+		end
+		if not model.Parent then
+			return
+		end
+	
+		-- 1) الضغط على AnchorBtn تلقائياً
+		clickGuiButtonByName("AnchorBtn")
+	
+		-- 2) حساب أعلى نقطة في MirageIsland
+		local highestTargetPos = getHighestPointInModel(model)
+		if not highestTargetPos then
+			return
+		end
+	
+		local character = player.Character
+		local rootPart = character and (character:FindFirstChild("HumanoidRootPart") :: BasePart?)
+		local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+	
+		if not rootPart then
+			return
+		end
+	
+		local movePart: BasePart = rootPart
+		if humanoid and humanoid.SeatPart and humanoid.SeatPart:IsA("BasePart") then
+			local seatPart = humanoid.SeatPart
+			if currentBoat and seatPart:IsDescendantOf(currentBoat) and currentBoat.PrimaryPart then
+				movePart = currentBoat.PrimaryPart
+			elseif currentBoat and seatPart:IsDescendantOf(currentBoat) then
+				movePart = seatPart
+			end
+		end
+	
+		-- 3) تنفيذ Tween مخصص لأعلى نقطة ثم فك التوين تلقائياً
+		customTweenToCFrame(movePart, highestTargetPos, MIRAGE_TWEEN_DURATION, nil, nil, function()
+			stopCurrentProcess()
+		end)
+	end
+	
+	-- رصد أي MirageIsland يترسبن داخل workspace.Map
+	mirageConnection = mapFolder.DescendantAdded:Connect(function(descendant: Instance)
+		if descendant:IsA("Model") and descendant.Name == "MirageIsland" then
+			handleMirageIsland(descendant)
+		end
+	end)
+	
+	-- فحص إذا كان MirageIsland موجوداً مسبقاً داخل workspace.Map
+	for _, desc in ipairs(mapFolder:GetDescendants()) do
+		if desc:IsA("Model") and desc.Name == "MirageIsland" then
+			task.spawn(handleMirageIsland, desc)
+		end
+	end
+	
+	toggleButton.MouseButton1Click:Connect(function()
+		if isActive then
+			turnOffAll()
+		else
+			turnOnAll()
+		end
+	end)
+end)
+
+-- تشغيل برمجة: LocalScript
+task.spawn(function()
+	local script = setmetatable({Parent = ui_ToggleBtn_21, Name = "LocalScript"}, {__index = ui_ToggleBtn_21})
+	local button = script.Parent
+	local frame = button.Parent:FindFirstChild("ScriptFrame")
+	
+	if not button:IsA("GuiButton") then
+		warn("يجب وضع السكربت داخل زر (TextButton أو ImageButton)")
+		return
+	end
+	
+	if not frame or not frame:IsA("GuiObject") then
+		warn("لم يتم العثور على ScriptFrame بنفس المستوى الأب للزر")
+		return
+	end
+	
+	-- ضبط الحالة الابتدائية (اختياري)
+	frame.Visible = true
+	
+	button.MouseButton1Click:Connect(function()
+		frame.Visible = not frame.Visible
+	end)
 end)
